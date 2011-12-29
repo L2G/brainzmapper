@@ -1,4 +1,4 @@
-== Description ==
+== Description
 
 dm-brainz is simply a DataMapper-based wrapper around the MusicBrainz database
 schema, making tables available as objects to Ruby.
