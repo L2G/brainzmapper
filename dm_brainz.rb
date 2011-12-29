@@ -42,6 +42,7 @@ class Date < Date
 end
 end
 
+##############################################################################
 # CREATE TABLE annotation
 # (
 #     id                  SERIAL,
@@ -51,6 +52,18 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+class Annotation
+    include DataMapper::Resource
+
+    property   :id,        Serial
+    property   :editor_id, Integer, :field => 'editor', :required => true
+    belongs_to :editor,    :child_key => [:editor_id], :parent_key => [:id]
+    property   :text,      Text
+    property   :changelog, String, :length => 255
+    property   :created,   DateTime, :default => Time.now
+end
+
+##############################################################################
 # CREATE TABLE artist (
 #     id                  SERIAL,
 #     gid                 UUID NOT NULL,
@@ -109,6 +122,9 @@ class Artist
     property   :ipi_code, String, :length => 11
     property   :last_updated, DateTime
 
+    has 0..1,  :annotation, :model => 'Annotation',
+               :through => :artist_annotation
+
     def begin_date
         y, m, d = begin_date_year, begin_date_month, begin_date_day
         unless y.nil?
@@ -138,13 +154,28 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE artist_annotation
 # (
 #     artist              INTEGER NOT NULL, -- PK, references artist.id
 #     annotation          INTEGER NOT NULL -- PK, references annotation.id
 # );
-# 
+
+class ArtistAnnotation
+    include DataMapper::Resource
+
+    property :artist_id,     Integer, :field => 'artist',     :key => true
+    property :annotation_id, Integer, :field => 'annotation', :key => true
+
+    belongs_to :artist
+    belongs_to :annotation 
+end
+
+##############################################################################
+# DataMapper wants to call it AnnotationArtist instead of ArtistAnnotation
+class AnnotationArtist < ArtistAnnotation; end
+
 # CREATE TABLE artist_meta
 # (
 #     id                  INTEGER NOT NULL, -- PK, references artist.id CASCADE
@@ -152,6 +183,7 @@ end
 #     rating_count        INTEGER
 # );
 
+##############################################################################
 # CREATE TABLE artist_name (
 #     id                  SERIAL,
 #     name                VARCHAR NOT NULL
@@ -168,6 +200,7 @@ class ArtistName
     end
 end
 
+##############################################################################
 # CREATE TABLE artist_type (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL
@@ -222,6 +255,7 @@ end
 #     join_phrase         TEXT
 # );
 
+##############################################################################
 # CREATE TABLE artist_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
@@ -301,6 +335,7 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+##############################################################################
 # CREATE TABLE country (
 #     id                  SERIAL,
 #     iso_code            VARCHAR(2) NOT NULL,
@@ -390,6 +425,7 @@ end
 #     url                 INTEGER NOT NULL  -- PK, references url.id CASCADE
 # );
 
+##############################################################################
 # CREATE TABLE editor
 # (
 #     id                  SERIAL,
@@ -464,7 +500,8 @@ end
 #     subscribed_editor   INTEGER NOT NULL, -- references editor.id (the one being subscribed)
 #     last_edit_sent      INTEGER NOT NULL  -- weakly references edit
 # );
-# 
+
+##############################################################################
 # CREATE TABLE gender (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL
