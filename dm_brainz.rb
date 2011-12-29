@@ -232,7 +232,7 @@ end
 class ArtistGidRedirect
     include DataMapper::Resource
 
-    property :gid, UUID, :required => true
+    property :gid, UUID, :key => true
 
     property :new_id, Integer, :required => true
     belongs_to :new_artist, :model => Artist, :child_key => [:new_id],
@@ -417,8 +417,8 @@ class Editor
     property :password,            String,   :length => 64, :required => true
     property :privs,               Integer,  :default => 0
     property :email,               String,   :length => 64
-    property :website,             String,   :length => 255
-    property :bio,                 String
+    property :website,             URI,      :length => 255
+    property :bio,                 Text
     property :member_since,        DateTime, :default => Time.now
     property :email_confirm_date,  DateTime
     property :last_login_date,     DateTime
@@ -474,7 +474,7 @@ class Gender
     include DataMapper::Resource
 
     property :id,   Serial
-    property :name, String, :length => 255
+    property :name, String, :length => 255, :required => true
 
     def to_s
         name
