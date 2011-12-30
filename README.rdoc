@@ -1,10 +1,12 @@
 == Description
 
-dm-brainz is simply a DataMapper-based wrapper around the MusicBrainz database
-schema, making tables available as objects to Ruby.
+Brainzmapper is simply a DataMapper-based wrapper around the MusicBrainz
+database schema, making tables available as objects to Ruby.
 
-The project is currently at the very start of development. Nothing exciting to
-see here yet.
+The project is currently at the very start of development. Any element of the
+API may change at any time.
+
+== License
 
 The code is derived from the MusicBrainz database schema, and thus is licensed
 under the same terms as the MusicBrainz server--the GNU General Public License
