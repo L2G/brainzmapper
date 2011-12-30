@@ -7,7 +7,7 @@
 # server code.  Since the server is licensed under the terms of the GNU
 # General Public License version 2, so is this.
 #
-# Lawrence Leonard Gilbert (2011-12-28)
+# Lawrence Leonard Gilbert (2011-12-29)
 
 require 'rubygems'
 require 'data_mapper'
@@ -145,6 +145,7 @@ class Artist
 
 end
 
+##############################################################################
 # CREATE TABLE artist_alias
 # (
 #     id                  SERIAL,
@@ -154,6 +155,21 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
+
+class ArtistAlias
+    include DataMapper::Resource
+
+    property :id, Serial
+    property :artist_id, Integer, :required => true, :field => 'artist'
+    property :artist_name_id, Integer, :required => true, :field => 'name'
+
+    belongs_to :artist
+    belongs_to :name, :model => 'ArtistName', :child_key => [:artist_name_id]
+
+    property :locale, Text
+    property :edits_pending, Integer, :required => true, :default => 0
+    property :last_updated, DateTime, :default => Time.now
+end
 
 ##############################################################################
 # CREATE TABLE artist_annotation
@@ -269,7 +285,7 @@ class ArtistGidRedirect
     property :gid, UUID, :key => true
 
     property :new_id, Integer, :required => true
-    belongs_to :new_artist, :model => Artist, :child_key => [:new_id],
+    belongs_to :new_artist, :model => 'Artist', :child_key => [:new_id],
                :parent_id => [:id]
 
     property :created, DateTime, :default => Time.now
