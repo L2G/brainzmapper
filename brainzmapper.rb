@@ -12,6 +12,7 @@
 require 'rubygems'
 require 'data_mapper'
 require 'date'
+require 'delegate'
 
 POSTGRES_URI = 'postgres://musicbrainz_rw@localhost/musicbrainz_db?search_path=musicbrainz'
 
@@ -20,26 +21,54 @@ ADAPTER = DataMapper.setup(:default, POSTGRES_URI)
 ADAPTER.resource_naming_convention =
     DataMapper::NamingConventions::Resource::Underscored
 
-module MB
-class Date < Date
-    attr_reader :year, :month, :day
-
-    def initialize(year, month = nil, day = nil)
+class FuzzyDate < DelegateClass(Date)
+    def initialize(year, month, day)
         if month.nil?
-            @mb_date_precision = :y
+            @date_precision = :y
             super(year)
         else
             if day.nil?
-                @mb_date_precision = :m
-                super(year, month)
+                @date_precision = :m
             else
-                @mb_date_precision = :d
-                super(year, month, day)
+                @date_precision = :d
             end
+        end
+        @date_obj = Date.new(year, month||1, day||1)
+        super(@date_obj)
+    end
+
+    def precision
+        @date_precision
+    end
+
+    def to_s
+        case @date_precision
+        when :y
+            super.gsub(/-.*$/,'')
+        when :m
+            super.gsub(/-\d+$/,'')
+        else
+            super
         end
     end
 
-end
+    def mon
+        if @date_precision == :y
+            nil
+        else
+            super
+        end
+    end
+
+    def day
+        case @date_precision
+        when :y, :m
+            nil
+        else
+            super
+        end
+    end
+        
 end
 
 ##############################################################################
@@ -122,7 +151,7 @@ class Artist
     def begin_date
         y, m, d = begin_date_year, begin_date_month, begin_date_day
         unless y.nil?
-            MB::Date.new(y, m, d)
+            FuzzyDate.new(y, m, d)
         else
             nil
         end
@@ -131,7 +160,7 @@ class Artist
     def end_date
         y, m, d = end_date_year, begin_date_month, begin_date_day
         unless y.nil?
-            MB::Date.new(y, m, d)
+            FuzzyDate.new(y, m, d)
         else
             nil
         end
