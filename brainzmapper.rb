@@ -57,7 +57,7 @@ class Annotation
 
     property   :id,        Serial
     property   :editor_id, Integer, :field => 'editor', :required => true
-    belongs_to :editor,    :child_key => [:editor_id], :parent_key => [:id]
+    belongs_to :editor
     property   :text,      Text
     property   :changelog, String, :length => 255
     property   :created,   DateTime, :default => Time.now
@@ -91,12 +91,10 @@ class Artist
     property   :gid, UUID
 
     property   :name_id, Integer, :field => 'name', :required => true
-    belongs_to :name, :model => 'ArtistName', :child_key => [:name_id],
-               :parent_key => [:id]
+    belongs_to :name, :model => 'ArtistName'
 
     property   :sort_name_id, Integer, :field => 'sort_name', :required => true
-    belongs_to :sort_name, :model => 'ArtistName',
-               :child_key => [:sort_name_id], :parent_key => [:id]
+    belongs_to :sort_name, :model => 'ArtistName'
 
     property   :begin_date_year, Integer
     property   :begin_date_month, Integer
@@ -107,23 +105,19 @@ class Artist
     property   :end_date_day, Integer
 
     property   :artist_type_id, Integer, :field => 'type'
-    belongs_to :artist_type, :model => 'ArtistType',
-               :child_key => [:artist_type_id], :parent_key => [:id]
+    belongs_to :artist_type
 
     property   :country_id, Integer, :field => 'country'
-    belongs_to :country, :model => 'Country',
-               :child_key => [:country_id], :parent_key => [:id]
+    belongs_to :country
 
     property   :gender_id, Integer, :field => 'gender'
-    belongs_to :gender, :model => 'Gender',
-               :child_key => [:gender_id], :parent_key => [:id]
+    belongs_to :gender
 
     property   :comment,  String, :length => 255
     property   :ipi_code, String, :length => 11
     property   :last_updated, DateTime
 
-    has 0..1,  :annotation, :model => 'Annotation',
-               :through => :artist_annotation
+    has 0..1,  :annotation, :through => :artist_annotation
 
     def begin_date
         y, m, d = begin_date_year, begin_date_month, begin_date_day
@@ -285,8 +279,7 @@ class ArtistGidRedirect
     property :gid, UUID, :key => true
 
     property :new_id, Integer, :required => true
-    belongs_to :new_artist, :model => 'Artist', :child_key => [:new_id],
-               :parent_id => [:id]
+    belongs_to :new_artist, :model => 'Artist', :child_key => [:new_id]
 
     property :created, DateTime, :default => Time.now
 end
