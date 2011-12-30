@@ -186,12 +186,22 @@ end
 # DataMapper wants to call it AnnotationArtist instead of ArtistAnnotation
 class AnnotationArtist < ArtistAnnotation; end
 
+##############################################################################
 # CREATE TABLE artist_meta
 # (
 #     id                  INTEGER NOT NULL, -- PK, references artist.id CASCADE
 #     rating              SMALLINT CHECK (rating >= 0 AND rating <= 100),
 #     rating_count        INTEGER
 # );
+
+class ArtistMeta
+    include DataMapper::Resource
+
+    property   :artist_id,    Integer, :field => 'id', :key => true
+    belongs_to :artist
+    property   :rating,       Integer
+    property   :rating_count, Integer
+end
 
 ##############################################################################
 # CREATE TABLE artist_name (
