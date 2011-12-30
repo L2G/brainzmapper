@@ -147,6 +147,7 @@ class Artist
     property   :last_updated, DateTime
 
     has 0..1,  :annotation, :through => :artist_annotation
+    has 0..n,  :aliases, :model => 'ArtistAlias'
 
     def begin_date
         y, m, d = begin_date_year, begin_date_month, begin_date_day
