@@ -158,7 +158,7 @@ class Artist
     end
 
     def end_date
-        y, m, d = end_date_year, begin_date_month, begin_date_day
+        y, m, d = end_date_year, end_date_month, end_date_day
         unless y.nil?
             FuzzyDate.new(y, m, d)
         else
