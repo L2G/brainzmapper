@@ -3,8 +3,8 @@
 Brainzmapper is simply a DataMapper-based wrapper around the MusicBrainz
 database schema, making tables available as objects to Ruby.
 
-The project is currently at the very start of development. Any element of the
-API may change at any time.
+The project is currently at the very start of development; the table coverage
+is under 10%. Furthermore, any element of the API may change at any time.
 
 == License
 
