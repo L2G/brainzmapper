@@ -71,6 +71,12 @@ class FuzzyDate < DelegateClass(Date)
         
 end
 
+module SimpleInspect
+    def inspect
+        "#<#{self.class} #{self.id}:#{self.name}>"
+    end
+end
+
 ##############################################################################
 # CREATE TABLE annotation
 # (
@@ -241,6 +247,7 @@ end
 
 class ArtistName
     include DataMapper::Resource
+    include SimpleInspect
 
     property :id, Serial
     property :name, String
@@ -258,6 +265,7 @@ end
 
 class ArtistType
     include DataMapper::Resource
+    include SimpleInspect
 
     property :id, Serial
     property :name, String, :length => 255
@@ -558,6 +566,7 @@ end
 
 class Gender
     include DataMapper::Resource
+    include SimpleInspect
 
     property :id,   Serial
     property :name, String, :length => 255, :required => true
