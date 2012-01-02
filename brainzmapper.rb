@@ -454,6 +454,30 @@ end
 #     quality             SMALLINT NOT NULL DEFAULT 1
 # );
 
+class Edit
+    include DataMapper::Resource
+
+    property   :id, Serial
+
+    property   :editor_id, Integer, :field => 'editor', :required => true
+    belongs_to :editor
+
+    property   :type,        Integer, :required => true
+    property   :status,      Integer, :required => true
+    property   :data,        Text, :required => true
+    property   :yes_votes,   Integer, :required => true, :default => 0
+    property   :no_votes,    Integer, :required => true, :default => 0
+    property   :autoedit,    Integer, :required => true, :default => 0
+    property   :open_time,   DateTime, :default => Time.now
+    property   :close_time,  DateTime
+    property   :expire_time, DateTime, :required => true
+
+    property   :language_id, Integer, :field => 'language'
+    belongs_to :language
+
+    property   :quality, Integer, :required => true, :default => 1
+end
+
 ##############################################################################
 # CREATE TABLE edit_note
 # (
@@ -1035,6 +1059,17 @@ end
 #     name                VARCHAR(100) NOT NULL,
 #     frequency           INTEGER NOT NULL DEFAULT 0
 # );
+
+class Language
+    include DataMapper::Resource
+
+    property :id,          Serial
+    property :iso_code_3t, String,  :length => 3, :required => true
+    property :iso_code_3b, String,  :length => 3, :required => true
+    property :iso_code_2,  String,  :length => 2, :required => true
+    property :name,        String,  :length => 100, :required => true
+    property :frequency,   Integer, :required => true, :default => true
+end
 
 ##############################################################################
 # CREATE TABLE link
