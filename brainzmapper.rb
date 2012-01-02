@@ -300,20 +300,23 @@ class ArtistTag
     property :last_updated, DateTime, :default => Time.now
 end
 
+##############################################################################
 # CREATE TABLE artist_rating_raw
 # (
 #     artist              INTEGER NOT NULL, -- PK, references artist.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     rating              SMALLINT NOT NULL CHECK (rating >= 0 AND rating <= 100)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE artist_tag_raw
 # (
 #     artist              INTEGER NOT NULL, -- PK, references artist.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     tag                 INTEGER NOT NULL -- PK, references tag.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE artist_credit (
 #     id                  SERIAL,
 #     name                INTEGER NOT NULL, -- references artist_name.id
@@ -321,7 +324,8 @@ end
 #     ref_count           INTEGER DEFAULT 0,
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE artist_credit_name (
 #     artist_credit       INTEGER NOT NULL, -- PK, references artist_credit.id CASCADE
 #     position            SMALLINT NOT NULL, -- PK
@@ -349,6 +353,7 @@ class ArtistGidRedirect
     property :created, DateTime, :default => Time.now
 end
 
+##############################################################################
 # CREATE TABLE autoeditor_election
 # (
 #     id                  SERIAL,
@@ -370,7 +375,8 @@ end
 #     open_time           TIMESTAMP WITH TIME ZONE,
 #     close_time          TIMESTAMP WITH TIME ZONE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE autoeditor_election_vote
 # (
 #     id                  SERIAL,
@@ -379,7 +385,8 @@ end
 #     vote                INTEGER NOT NULL CHECK (vote IN (-1,0,1)),
 #     vote_time           TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE cdtoc
 # (
 #     id                  SERIAL,
@@ -391,7 +398,8 @@ end
 #     degraded            BOOLEAN NOT NULL DEFAULT FALSE,
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE cdtoc_raw
 # (
 #     id                  SERIAL,
@@ -401,7 +409,7 @@ end
 #     leadout_offset       INTEGER NOT NULL,
 #     track_offset         INTEGER[] NOT NULL
 # );
-# 
+
 # CREATE TABLE clientversion
 # (
 #     id                  SERIAL,
@@ -428,7 +436,7 @@ class Country
     end
 end
 
-
+##############################################################################
 # CREATE TABLE edit
 # (
 #     id                  SERIAL,
@@ -445,7 +453,8 @@ end
 #     language            INTEGER, -- references language
 #     quality             SMALLINT NOT NULL DEFAULT 1
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_note
 # (
 #     id                  SERIAL,
@@ -454,45 +463,52 @@ end
 #     text                TEXT NOT NULL,
 #     post_time            TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_artist
 # (
 #     edit                INTEGER NOT NULL, -- PK, references edit.id
 #     artist              INTEGER NOT NULL, -- PK, references artist.id CASCADE
 #     status              SMALLINT NOT NULL -- materialized from edit.status
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_label
 # (
 #     edit                INTEGER NOT NULL, -- PK, references edit.id
 #     label               INTEGER NOT NULL, -- PK, references label.id CASCADE
 #     status              SMALLINT NOT NULL -- materialized from edit.status
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_release
 # (
 #     edit                INTEGER NOT NULL, -- PK, references edit.id
 #     release             INTEGER NOT NULL  -- PK, references release.id CASCADE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_release_group
 # (
 #     edit                INTEGER NOT NULL, -- PK, references edit.id
 #     release_group       INTEGER NOT NULL  -- PK, references release_group.id CASCADE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_recording
 # (
 #     edit                INTEGER NOT NULL, -- PK, references edit.id
 #     recording           INTEGER NOT NULL  -- PK, references recording.id CASCADE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_work
 # (
 #     edit                INTEGER NOT NULL, -- PK, references edit.id
 #     work                INTEGER NOT NULL  -- PK, references work.id CASCADE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE edit_url
 # (
 #     edit                INTEGER NOT NULL, -- PK, references edit.id
@@ -539,6 +555,7 @@ class Editor
     property :last_updated,        DateTime, :default => Time.now
 end
 
+##############################################################################
 # CREATE TABLE editor_preference
 # (
 #     id                  SERIAL,
@@ -546,7 +563,8 @@ end
 #     name                VARCHAR(50) NOT NULL,
 #     value               VARCHAR(100) NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_subscribe_artist
 # (
 #     id                  SERIAL,
@@ -556,7 +574,8 @@ end
 #     deleted_by_edit     INTEGER NOT NULL DEFAULT 0, -- weakly references edit
 #     merged_by_edit      INTEGER NOT NULL DEFAULT 0 -- weakly references edit
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_subscribe_label
 # (
 #     id                  SERIAL,
@@ -566,7 +585,8 @@ end
 #     deleted_by_edit     INTEGER NOT NULL DEFAULT 0, -- weakly references edit
 #     merged_by_edit      INTEGER NOT NULL DEFAULT 0 -- weakly references edit
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_subscribe_editor
 # (
 #     id                  SERIAL,
@@ -593,6 +613,7 @@ class Gender
     end
 end
 
+##############################################################################
 # CREATE TABLE isrc
 # (
 #     id                  SERIAL,
@@ -602,7 +623,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_artist_artist
 # (
 #     id                  SERIAL,
@@ -612,7 +634,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_artist_label
 # (
 #     id                  SERIAL,
@@ -622,7 +645,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_artist_recording
 # (
 #     id                  SERIAL,
@@ -632,7 +656,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_artist_release
 # (
 #     id                  SERIAL,
@@ -642,7 +667,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_artist_release_group
 # (
 #     id                  SERIAL,
@@ -652,7 +678,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_artist_url
 # (
 #     id                  SERIAL,
@@ -662,7 +689,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_artist_work
 # (
 #     id                  SERIAL,
@@ -672,7 +700,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_label_label
 # (
 #     id                  SERIAL,
@@ -682,7 +711,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_label_recording
 # (
 #     id                  SERIAL,
@@ -692,7 +722,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_label_release
 # (
 #     id                  SERIAL,
@@ -702,7 +733,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_label_release_group
 # (
 #     id                  SERIAL,
@@ -712,7 +744,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_label_url
 # (
 #     id                  SERIAL,
@@ -722,7 +755,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_label_work
 # (
 #     id                  SERIAL,
@@ -732,7 +766,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_recording_recording
 # (
 #     id                  SERIAL,
@@ -742,7 +777,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_recording_release
 # (
 #     id                  SERIAL,
@@ -752,7 +788,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_recording_release_group
 # (
 #     id                  SERIAL,
@@ -762,7 +799,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_recording_url
 # (
 #     id                  SERIAL,
@@ -772,7 +810,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_recording_work
 # (
 #     id                  SERIAL,
@@ -782,7 +821,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_release_release
 # (
 #     id                  SERIAL,
@@ -792,7 +832,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_release_release_group
 # (
 #     id                  SERIAL,
@@ -802,7 +843,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_release_url
 # (
 #     id                  SERIAL,
@@ -812,7 +854,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_release_work
 # (
 #     id                  SERIAL,
@@ -822,7 +865,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_release_group_release_group
 # (
 #     id                  SERIAL,
@@ -832,7 +876,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_release_group_url
 # (
 #     id                  SERIAL,
@@ -842,7 +887,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_release_group_work
 # (
 #     id                  SERIAL,
@@ -852,7 +898,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_url_url
 # (
 #     id                  SERIAL,
@@ -862,7 +909,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_url_work
 # (
 #     id                  SERIAL,
@@ -872,7 +920,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE l_work_work
 # (
 #     id                  SERIAL,
@@ -882,7 +931,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label (
 #     id                  SERIAL,
 #     gid                 UUID NOT NULL,
@@ -902,22 +952,25 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
-# 
+
+
+##############################################################################
 # CREATE TABLE label_rating_raw
 # (
 #     label               INTEGER NOT NULL, -- PK, references label.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     rating              SMALLINT NOT NULL CHECK (rating >= 0 AND rating <= 100)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_tag_raw
 # (
 #     label               INTEGER NOT NULL, -- PK, references label.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     tag                 INTEGER NOT NULL -- PK, references tag.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_alias
 # (
 #     id                  SERIAL,
@@ -927,32 +980,37 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_annotation
 # (
 #     label               INTEGER NOT NULL, -- PK, references label.id
 #     annotation          INTEGER NOT NULL -- PK, references annotation.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_meta
 # (
 #     id                  INTEGER NOT NULL, -- PK, references label.id CASCADE
 #     rating              SMALLINT CHECK (rating >= 0 AND rating <= 100),
 #     rating_count        INTEGER
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
 #     new_id              INTEGER NOT NULL, -- references label.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_name (
 #     id                  SERIAL,
 #     name                VARCHAR NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_tag
 # (
 #     label               INTEGER NOT NULL, -- PK, references label.id
@@ -960,12 +1018,14 @@ end
 #     count               INTEGER NOT NULL,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE label_type (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE language
 # (
 #     id                  SERIAL,
@@ -975,7 +1035,8 @@ end
 #     name                VARCHAR(100) NOT NULL,
 #     frequency           INTEGER NOT NULL DEFAULT 0
 # );
-# 
+
+##############################################################################
 # CREATE TABLE link
 # (
 #     id                  SERIAL,
@@ -989,14 +1050,16 @@ end
 #     attribute_count     INTEGER NOT NULL DEFAULT 0,
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE link_attribute
 # (
 #     link                INTEGER NOT NULL, -- PK, references link.id
 #     attribute_type      INTEGER NOT NULL, -- PK, references link_attribute_type.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE link_attribute_type
 # (
 #     id                  SERIAL,
@@ -1008,7 +1071,8 @@ end
 #     description         TEXT,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE link_type
 # (
 #     id                  SERIAL,
@@ -1025,7 +1089,8 @@ end
 #     priority            INTEGER NOT NULL DEFAULT 0,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE link_type_attribute_type
 # (
 #     link_type           INTEGER NOT NULL, -- PK, references link_type.id
@@ -1034,7 +1099,8 @@ end
 #     max                 SMALLINT,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_collection
 # (
 #     id                  SERIAL,
@@ -1043,13 +1109,15 @@ end
 #     name                VARCHAR NOT NULL,
 #     public              BOOLEAN NOT NULL DEFAULT FALSE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_collection_release
 # (
 #     collection          INTEGER NOT NULL, -- PK, references editor_collection.id
 #     release             INTEGER NOT NULL -- PK, references release.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_watch_preferences
 # (
 #     editor INTEGER NOT NULL, -- PK, references editor.id CASCADE
@@ -1057,25 +1125,29 @@ end
 #     notification_timeframe INTERVAL NOT NULL DEFAULT '1 week',
 #     last_checked TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_watch_artist
 # (
 #     artist INTEGER NOT NULL, -- PK, references artist.id CASCADE
 #     editor INTEGER NOT NULL  -- PK, references editor.id CASCADE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_watch_release_group_type
 # (
 #     editor INTEGER NOT NULL, -- PK, references editor.id CASCADE
 #     release_group_type INTEGER NOT NULL -- PK, references release_group_type.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE editor_watch_release_status
 # (
 #     editor INTEGER NOT NULL, -- PK, references editor.id CASCADE
 #     release_status INTEGER NOT NULL -- PK, references release_status.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE medium
 # (
 #     id                  SERIAL,
@@ -1087,7 +1159,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE medium_cdtoc
 # (
 #     id                  SERIAL,
@@ -1096,7 +1169,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE medium_format
 # (
 #     id                  SERIAL,
@@ -1106,14 +1180,16 @@ end
 #     year                SMALLINT,
 #     has_discids         BOOLEAN NOT NULL DEFAULT FALSE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE puid
 # (
 #     id                  SERIAL,
 #     puid                CHAR(36) NOT NULL,
 #     version             INTEGER NOT NULL -- references clientversion.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE replication_control
 # (
 #     id                              SERIAL,
@@ -1121,7 +1197,8 @@ end
 #     current_replication_sequence    INTEGER,
 #     last_replication_date           TIMESTAMP WITH TIME ZONE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording (
 #     id                  SERIAL,
 #     gid                 UUID NOT NULL,
@@ -1132,41 +1209,47 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording_rating_raw
 # (
 #     recording           INTEGER NOT NULL, -- PK, references recording.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     rating              SMALLINT NOT NULL CHECK (rating >= 0 AND rating <= 100)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording_tag_raw
 # (
 #     recording           INTEGER NOT NULL, -- PK, references recording.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     tag                 INTEGER NOT NULL -- PK, references tag.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording_annotation
 # (
 #     recording           INTEGER NOT NULL, -- PK, references recording.id
 #     annotation          INTEGER NOT NULL -- PK, references annotation.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording_meta
 # (
 #     id                  INTEGER NOT NULL, -- PK, references recording.id CASCADE
 #     rating              SMALLINT CHECK (rating >= 0 AND rating <= 100),
 #     rating_count        INTEGER
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
 #     new_id              INTEGER NOT NULL, -- references recording.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording_puid
 # (
 #     id                  SERIAL,
@@ -1175,7 +1258,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE recording_tag
 # (
 #     recording           INTEGER NOT NULL, -- PK, references recording.id
@@ -1183,7 +1267,8 @@ end
 #     count               INTEGER NOT NULL,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release (
 #     id                  SERIAL,
 #     gid                 UUID NOT NULL,
@@ -1204,7 +1289,8 @@ end
 #     quality             SMALLINT NOT NULL DEFAULT -1,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_raw
 # (
 #     id                  SERIAL,
@@ -1218,27 +1304,31 @@ end
 #     barcode             VARCHAR(255),
 #     comment             VARCHAR(255)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_tag_raw
 # (
 #     release             INTEGER NOT NULL, -- PK, references release.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     tag                 INTEGER NOT NULL -- PK, references tag.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_annotation
 # (
 #     release             INTEGER NOT NULL, -- PK, references release.id
 #     annotation          INTEGER NOT NULL -- PK, references annotation.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
 #     new_id              INTEGER NOT NULL, -- references release.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_meta
 # (
 #     id                  INTEGER NOT NULL, -- PK, references release.id CASCADE
@@ -1247,14 +1337,16 @@ end
 #     amazon_asin         VARCHAR(10),
 #     amazon_store        VARCHAR(20)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_coverart
 # (
 #     id                  INTEGER NOT NULL, -- PK, references release.id CASCADE
 #     last_updated        TIMESTAMP WITH TIME ZONE,
 #     cover_art_url       VARCHAR(255)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_label (
 #     id                  SERIAL,
 #     release             INTEGER NOT NULL, -- references release.id
@@ -1262,19 +1354,22 @@ end
 #     catalog_number      VARCHAR(255),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_packaging
 # (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_status
 # (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_tag
 # (
 #     release             INTEGER NOT NULL, -- PK, references release.id
@@ -1282,7 +1377,8 @@ end
 #     count               INTEGER NOT NULL,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group (
 #     id                  SERIAL,
 #     gid                 UUID NOT NULL,
@@ -1293,34 +1389,39 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group_rating_raw
 # (
 #     release_group       INTEGER NOT NULL, -- PK, references release_group.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     rating              SMALLINT NOT NULL CHECK (rating >= 0 AND rating <= 100)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group_tag_raw
 # (
 #     release_group       INTEGER NOT NULL, -- PK, references release_group.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     tag                 INTEGER NOT NULL -- PK, references tag.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group_annotation
 # (
 #     release_group       INTEGER NOT NULL, -- PK, references release_group.id
 #     annotation          INTEGER NOT NULL -- PK, references annotation.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
 #     new_id              INTEGER NOT NULL, -- references release_group.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group_meta
 # (
 #     id                  INTEGER NOT NULL, -- PK, references release_group.id CASCADE
@@ -1331,7 +1432,8 @@ end
 #     rating              SMALLINT CHECK (rating >= 0 AND rating <= 100),
 #     rating_count        INTEGER
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group_tag
 # (
 #     release_group       INTEGER NOT NULL, -- PK, references release_group.id
@@ -1339,17 +1441,20 @@ end
 #     count               INTEGER NOT NULL,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_group_type (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE release_name (
 #     id                  SERIAL,
 #     name                VARCHAR NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE script
 # (
 #     id                  SERIAL,
@@ -1358,7 +1463,8 @@ end
 #     name                VARCHAR(100) NOT NULL,
 #     frequency           INTEGER NOT NULL DEFAULT 0
 # );
-# 
+
+##############################################################################
 # CREATE TABLE script_language
 # (
 #     id                  SERIAL,
@@ -1366,7 +1472,8 @@ end
 #     language            INTEGER NOT NULL, -- references language.id
 #     frequency           INTEGER NOT NULL DEFAULT 0
 # );
-# 
+
+##############################################################################
 # CREATE TABLE statistic
 # (
 #     id                  SERIAL,
@@ -1391,6 +1498,7 @@ class Tag
     property :ref_count, Integer, :required => true, :default => 0
 end
 
+##############################################################################
 # CREATE TABLE tag_relation
 # (
 #     tag1                INTEGER NOT NULL, -- PK, references tag.id
@@ -1399,7 +1507,8 @@ end
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
 #     CHECK (tag1 < tag2)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE track
 # (
 #     id                  SERIAL,
@@ -1412,7 +1521,8 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE track_raw
 # (
 #     id                  SERIAL,
@@ -1421,25 +1531,29 @@ end
 #     artist              VARCHAR(255),   -- For VA albums, otherwise empty
 #     sequence            INTEGER NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE track_name (
 #     id                  SERIAL,
 #     name                VARCHAR NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE tracklist
 # (
 #     id                  SERIAL,
 #     track_count         INTEGER NOT NULL DEFAULT 0,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE tracklist_index
 # (
 #     tracklist           INTEGER, -- PK
 #     toc                 CUBE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE url
 # (
 #     id                  SERIAL,
@@ -1450,14 +1564,16 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE url_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
 #     new_id              INTEGER NOT NULL, -- references url.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE vote
 # (
 #     id                  SERIAL,
@@ -1467,7 +1583,8 @@ end
 #     vote_time            TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
 #     superseded          BOOLEAN NOT NULL DEFAULT FALSE
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work (
 #     id                  SERIAL,
 #     gid                 UUID NOT NULL,
@@ -1479,22 +1596,25 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_rating_raw
 # (
 #     work                INTEGER NOT NULL, -- PK, references work.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     rating              SMALLINT NOT NULL CHECK (rating >= 0 AND rating <= 100)
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_tag_raw
 # (
 #     work                INTEGER NOT NULL, -- PK, references work.id
 #     editor              INTEGER NOT NULL, -- PK, references editor.id
 #     tag                 INTEGER NOT NULL -- PK, references tag.id
 # );
-# 
-# 
+
+
+##############################################################################
 # CREATE TABLE work_alias
 # (
 #     id                  SERIAL,
@@ -1504,32 +1624,37 @@ end
 #     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_annotation
 # (
 #     work                INTEGER NOT NULL, -- PK, references work.id
 #     annotation          INTEGER NOT NULL -- PK, references annotation.id
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
 #     new_id              INTEGER NOT NULL, -- references work.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_meta
 # (
 #     id                  INTEGER NOT NULL, -- PK, references work.id CASCADE
 #     rating              SMALLINT CHECK (rating >= 0 AND rating <= 100),
 #     rating_count        INTEGER
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_name (
 #     id                  SERIAL,
 #     name                VARCHAR NOT NULL
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_tag
 # (
 #     work                INTEGER NOT NULL, -- PK, references work.id
@@ -1537,9 +1662,10 @@ end
 #     count               INTEGER NOT NULL,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE work_type (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL
 # );
-# 
+
