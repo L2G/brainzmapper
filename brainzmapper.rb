@@ -152,8 +152,9 @@ class Artist
     property   :ipi_code, String, :length => 11
     property   :last_updated, DateTime
 
+    has 0..n,  :aliases,    :model => 'ArtistAlias'
     has 0..1,  :annotation, :through => :artist_annotation
-    has 0..n,  :aliases, :model => 'ArtistAlias'
+    has 0..n,  :tags,       :through => :artist_tag
 
     def begin_date
         y, m, d = begin_date_year, begin_date_month, begin_date_day
@@ -275,6 +276,7 @@ class ArtistType
     end
 end
 
+##############################################################################
 # CREATE TABLE artist_tag
 # (
 #     artist              INTEGER NOT NULL, -- PK, references artist.id
@@ -282,7 +284,22 @@ end
 #     count               INTEGER NOT NULL,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
-# 
+
+class ArtistTag
+    include DataMapper::Resource
+
+    property :artist_id, Integer, :field => 'artist', :key => true
+    belongs_to :artist
+
+    property :tag_id, Integer, :field => 'tag', :key => true
+    belongs_to :tag
+
+    property :artist_tag_count, Integer, :field => 'count',
+             :required => true
+
+    property :last_updated, DateTime, :default => Time.now
+end
+
 # CREATE TABLE artist_rating_raw
 # (
 #     artist              INTEGER NOT NULL, -- PK, references artist.id
@@ -1357,14 +1374,23 @@ end
 #     value               INTEGER NOT NULL,
 #     date_collected      date NOT NULL DEFAULT NOW()
 # );
-# 
+
+##############################################################################
 # CREATE TABLE tag
 # (
 #     id                  SERIAL,
 #     name                VARCHAR(255) NOT NULL,
 #     ref_count           INTEGER NOT NULL DEFAULT 0
 # );
-# 
+
+class Tag
+    include DataMapper::Resource
+
+    property :id,        Serial
+    property :name,      String,  :length => 255
+    property :ref_count, Integer, :required => true, :default => 0
+end
+
 # CREATE TABLE tag_relation
 # (
 #     tag1                INTEGER NOT NULL, -- PK, references tag.id
