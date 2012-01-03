@@ -154,6 +154,7 @@ class Artist
 
     has 0..n,  :aliases,    :model => 'ArtistAlias'
     has 0..1,  :annotation, :through => :artist_annotation
+    has 0..1,  :meta,       :model => 'ArtistMeta'
     has 0..n,  :tags,       :through => :artist_tag
 
     def begin_date
@@ -174,6 +175,21 @@ class Artist
         end
     end
 
+    def rating
+        meta.rating
+    end
+
+    def rating=(new_rating)
+        meta.rating = new_rating
+    end
+
+    def rating_count
+        meta.rating_count
+    end
+
+    def rating_count=(new_count)
+        meta.rating_count = new_count
+    end
 end
 
 ##############################################################################
