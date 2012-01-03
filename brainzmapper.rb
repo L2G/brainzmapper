@@ -480,7 +480,7 @@ class Edit
 
     property   :type,        Integer, :required => true
     property   :status,      Integer, :required => true
-    property   :data,        Text, :required => true
+    property   :data,        Json,    :required => true
     property   :yes_votes,   Integer, :required => true, :default => 0
     property   :no_votes,    Integer, :required => true, :default => 0
     property   :autoedit,    Integer, :required => true, :default => 0
