@@ -95,7 +95,7 @@ class Annotation
     belongs_to :editor
     property   :text,      Text
     property   :changelog, String, :length => 255
-    property   :created,   DateTime, :default => Time.now
+    property   :created_at, DateTime, :field => 'created'
 end
 
 ##############################################################################
@@ -150,7 +150,7 @@ class Artist
 
     property   :comment,  String, :length => 255
     property   :ipi_code, String, :length => 11
-    property   :last_updated, DateTime
+    property   :updated_at, DateTime, :field => 'last_updated'
 
     has 0..n,  :aliases,    :model => 'ArtistAlias'
     has 0..1,  :annotation, :through => :artist_annotation
@@ -215,7 +215,7 @@ class ArtistAlias
 
     property :locale, Text, :lazy => false
     property :edits_pending, Integer, :required => true, :default => 0
-    property :last_updated, DateTime, :default => Time.now
+    property :updated_at, DateTime, :field => 'last_updated'
 end
 
 ##############################################################################
@@ -313,7 +313,7 @@ class ArtistTag
     property :artist_tag_count, Integer, :field => 'count',
              :required => true
 
-    property :last_updated, DateTime, :default => Time.now
+    property :updated_at, DateTime, :field => 'last_updated'
 end
 
 ##############################################################################
@@ -592,7 +592,7 @@ class Editor
     property :edits_rejected,      Integer,  :default => 0
     property :auto_edits_accepted, Integer,  :default => 0
     property :edits_failed,        Integer,  :default => 0
-    property :last_updated,        DateTime, :default => Time.now
+    property :updated_at,          DateTime, :field => 'last_updated'
 end
 
 ##############################################################################
