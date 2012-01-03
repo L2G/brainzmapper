@@ -1720,3 +1720,4 @@ end
 #     name                VARCHAR(255) NOT NULL
 # );
 
+DataMapper.finalize
