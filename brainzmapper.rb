@@ -585,7 +585,11 @@ class Editor
     property :id,                  Serial
     property :name,                String,   :length => 64, :required => true
     property :password,            String,   :length => 64, :required => true
-    property :privs,               Integer,  :default => 0
+    property :privs,               Flag,     :default => 0,
+                :flags => [:auto_editor, :bot, :untrusted,
+                           :relationship_editor, :dont_nag,
+                           :wiki_transclusion, :mbid_submitter,
+                           :account_admin]
     property :email,               String,   :length => 64
     property :website,             URI,      :length => 255
     property :bio,                 Text
