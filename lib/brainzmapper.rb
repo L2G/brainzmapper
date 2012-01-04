@@ -341,6 +341,19 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+class ArtistCredit
+    include DataMapper::Resource
+
+    property :id,           Serial
+
+    property :artist_name_id, Integer, :field => 'name', :required => true
+    belongs_to :name, :model => 'ArtistName', :child_key => [:artist_name_id]
+
+    property :artist_count, Integer, :required => true;
+    property :ref_count,    Integer, :default => true;
+    property :created_at,   DateTime, :field => 'created'
+end
+
 ##############################################################################
 # CREATE TABLE artist_credit_name (
 #     artist_credit       INTEGER NOT NULL, -- PK, references artist_credit.id CASCADE
@@ -349,6 +362,24 @@ end
 #     name                INTEGER NOT NULL, -- references artist_name.id
 #     join_phrase         TEXT
 # );
+
+class ArtistCreditName
+    include DataMapper::Resource
+
+    property :artist_credit_id, Integer, :field => 'artist_credit',
+                 :key => true
+    belongs_to :artist_credit
+
+    property :position, Integer, :key => true
+
+    property :artist_id, Integer, :field => 'artist', :required => true
+    belongs_to :artist
+
+    property :artist_name_id, Integer, :field => 'name'
+    belongs_to :artist_name
+
+    property :join_phrase, Text, :lazy => false
+end
 
 ##############################################################################
 # CREATE TABLE artist_gid_redirect
