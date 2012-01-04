@@ -480,7 +480,10 @@ class Edit
 
     # See lib/MusicBrainz/Server/Constants.pm ($EDIT_*) for edit types
     property   :type,        Integer, :required => true
-    property   :status,      Integer, :required => true
+    property   :status,      Enum,    :required => true,
+                 :flags => [:open, :applied, :failed_vote, :failed_dep,
+                            :error, :failed_prereq, :no_votes,
+                            :to_be_deleted, :deleted]
     property   :data,        Json,    :required => true
     property   :yes_votes,   Integer, :required => true, :default => 0
     property   :no_votes,    Integer, :required => true, :default => 0
