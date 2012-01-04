@@ -478,6 +478,7 @@ class Edit
     property   :editor_id, Integer, :field => 'editor', :required => true
     belongs_to :editor
 
+    # See lib/MusicBrainz/Server/Constants.pm ($EDIT_*) for edit types
     property   :type,        Integer, :required => true
     property   :status,      Integer, :required => true
     property   :data,        Json,    :required => true
