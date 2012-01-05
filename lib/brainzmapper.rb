@@ -29,7 +29,6 @@ ADAPTER.resource_naming_convention =
 # a specific date, or a month within a year, or just a year. An accessor
 # for the date's precision is also provided.
 
-#
 class FuzzyDate < DelegateClass(Date)
 
     # New instance of FuzzyDate. The month and day may be omitted, or just
@@ -128,15 +127,29 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
-#
+# An annotations is free-form text that accompanies an entry for an artist,
+# release, track... really most any object in MusicBrainz.
+
 class Annotation
     include DataMapper::Resource
 
+    # @return [Serial]
     property   :id,        Serial
+
+    # @private
     property   :editor_id, Integer, :field => 'editor', :required => true
+
+    # @return [Editor] The editor who wrote this annotation.
     belongs_to :editor
+
+    # @return [Text] The text of the annotation.
     property   :text,      Text
+
+    # @return [String] A one-line remark made by the editor about this
+    #   annotation.
     property   :changelog, String, :length => 255
+
+    # @return [DateTime] The date and time the annotation was created.
     property   :created_at, DateTime, :field => 'created'
 end
 
