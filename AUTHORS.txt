@@ -1,0 +1,40 @@
+Brainzmapper was created by Lawrence Leonard Gilbert.
+
+The SQL code used for documentation comes from the MusicBrainz server project,
+stewarded by the MetaBrainz Foundation.  The following people are logged in
+its code repository as having contributed to the SQL code:
+
+Mustaqil Ali
+Tarrogn Allen
+Seán de Búrca
+Neil Cafferkey
+Myers W Carpenter
+Paulo E. Castro
+Pavan Chander
+Oliver Charles
+Dave Evans
+Matthias Friedrich
+Wieland Hoffmann
+jayj
+Jugdish
+Robert Kaye
+Stefan Kestenholz
+Björn Krombholz
+kurtjx
+Lukáš Lalinský
+Ian McEwen
+Aurélien Mino
+Kevin Murphy
+Nikki
+Alastair Porter
+Johan Pouwelse
+Nikolai Prokoschenko
+Brian Schweitzer
+Anton Stroganov
+Nicolás Tamargo
+Paul Taylor
+Jason Watson
+Johannes Weißl
+Michael Wiencek
+Chad Wilson
+Kuno Woudt
