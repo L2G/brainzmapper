@@ -1,0 +1,2244 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Editor
+  
+    &mdash; Documentation by YARD 0.7.4
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (E)</a> &raquo; 
+    
+    
+    <span class="title">Editor</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Editor
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Editor</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2">DataMapper::Resource</dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/brainzmapper.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  
+
+
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auto_edits_accepted-class_method" title="auto_edits_accepted (class method)">+ (Object) <strong>auto_edits_accepted</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bio-class_method" title="bio (class method)">+ (Object) <strong>bio</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_accepted-class_method" title="edits_accepted (class method)">+ (Object) <strong>edits_accepted</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_failed-class_method" title="edits_failed (class method)">+ (Object) <strong>edits_failed</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_rejected-class_method" title="edits_rejected (class method)">+ (Object) <strong>edits_rejected</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email-class_method" title="email (class method)">+ (Object) <strong>email</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email_confirm_date-class_method" title="email_confirm_date (class method)">+ (Object) <strong>email_confirm_date</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id-class_method" title="id (class method)">+ (Object) <strong>id</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_login_date-class_method" title="last_login_date (class method)">+ (Object) <strong>last_login_date</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#member_since-class_method" title="member_since (class method)">+ (Object) <strong>member_since</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-class_method" title="name (class method)">+ (Object) <strong>name</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#password-class_method" title="password (class method)">+ (Object) <strong>password</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#privs-class_method" title="privs (class method)">+ (Object) <strong>privs</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#updated_at-class_method" title="updated_at (class method)">+ (Object) <strong>updated_at</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#website-class_method" title="website (class method)">+ (Object) <strong>website</strong>(repository = nil) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auto_edits_accepted-instance_method" title="#auto_edits_accepted (instance method)">- (Object) <strong>auto_edits_accepted</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#auto_edits_accepted%3D-instance_method" title="#auto_edits_accepted= (instance method)">- (Object) <strong>auto_edits_accepted=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bio-instance_method" title="#bio (instance method)">- (Object) <strong>bio</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#bio%3D-instance_method" title="#bio= (instance method)">- (Object) <strong>bio=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_accepted-instance_method" title="#edits_accepted (instance method)">- (Object) <strong>edits_accepted</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_accepted%3D-instance_method" title="#edits_accepted= (instance method)">- (Object) <strong>edits_accepted=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_failed-instance_method" title="#edits_failed (instance method)">- (Object) <strong>edits_failed</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_failed%3D-instance_method" title="#edits_failed= (instance method)">- (Object) <strong>edits_failed=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_rejected-instance_method" title="#edits_rejected (instance method)">- (Object) <strong>edits_rejected</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edits_rejected%3D-instance_method" title="#edits_rejected= (instance method)">- (Object) <strong>edits_rejected=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email-instance_method" title="#email (instance method)">- (Object) <strong>email</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email%3D-instance_method" title="#email= (instance method)">- (Object) <strong>email=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email_confirm_date-instance_method" title="#email_confirm_date (instance method)">- (Object) <strong>email_confirm_date</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email_confirm_date%3D-instance_method" title="#email_confirm_date= (instance method)">- (Object) <strong>email_confirm_date=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id-instance_method" title="#id (instance method)">- (Object) <strong>id</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#id%3D-instance_method" title="#id= (instance method)">- (Object) <strong>id=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_login_date-instance_method" title="#last_login_date (instance method)">- (Object) <strong>last_login_date</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#last_login_date%3D-instance_method" title="#last_login_date= (instance method)">- (Object) <strong>last_login_date=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#member_since-instance_method" title="#member_since (instance method)">- (Object) <strong>member_since</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#member_since%3D-instance_method" title="#member_since= (instance method)">- (Object) <strong>member_since=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name-instance_method" title="#name (instance method)">- (Object) <strong>name</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#name%3D-instance_method" title="#name= (instance method)">- (Object) <strong>name=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#password-instance_method" title="#password (instance method)">- (Object) <strong>password</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#password%3D-instance_method" title="#password= (instance method)">- (Object) <strong>password=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#privs-instance_method" title="#privs (instance method)">- (Object) <strong>privs</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#privs%3D-instance_method" title="#privs= (instance method)">- (Object) <strong>privs=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#updated_at-instance_method" title="#updated_at (instance method)">- (Object) <strong>updated_at</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#updated_at%3D-instance_method" title="#updated_at= (instance method)">- (Object) <strong>updated_at=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#website-instance_method" title="#website (instance method)">- (Object) <strong>website</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#website%3D-instance_method" title="#website= (instance method)">- (Object) <strong>website=</strong>(value) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="auto_edits_accepted-class_method">
+  
+    + (<tt>Object</tt>) <strong>auto_edits_accepted</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+688</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 688</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:auto_edits_accepted</span><span class='comma token'>,</span> <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="bio-class_method">
+  
+    + (<tt>Object</tt>) <strong>bio</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+682</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 682</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:bio</span><span class='comma token'>,</span>                 <span class='rubyid_Text constant id'>Text</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_accepted-class_method">
+  
+    + (<tt>Object</tt>) <strong>edits_accepted</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+686</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 686</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_accepted</span><span class='comma token'>,</span>      <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_failed-class_method">
+  
+    + (<tt>Object</tt>) <strong>edits_failed</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+689</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 689</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_failed</span><span class='comma token'>,</span>        <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_rejected-class_method">
+  
+    + (<tt>Object</tt>) <strong>edits_rejected</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+687</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 687</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_rejected</span><span class='comma token'>,</span>      <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="email-class_method">
+  
+    + (<tt>Object</tt>) <strong>email</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+680</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 680</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:email</span><span class='comma token'>,</span>               <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="email_confirm_date-class_method">
+  
+    + (<tt>Object</tt>) <strong>email_confirm_date</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+684</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 684</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:email_confirm_date</span><span class='comma token'>,</span>  <span class='rubyid_DateTime constant id'>DateTime</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="id-class_method">
+  
+    + (<tt>Object</tt>) <strong>id</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+672</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 672</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:id</span><span class='comma token'>,</span>                  <span class='rubyid_Serial constant id'>Serial</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="last_login_date-class_method">
+  
+    + (<tt>Object</tt>) <strong>last_login_date</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+685</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 685</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:last_login_date</span><span class='comma token'>,</span>     <span class='rubyid_DateTime constant id'>DateTime</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="member_since-class_method">
+  
+    + (<tt>Object</tt>) <strong>member_since</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+683</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 683</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:member_since</span><span class='comma token'>,</span>        <span class='rubyid_DateTime constant id'>DateTime</span><span class='comma token'>,</span> <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="name-class_method">
+  
+    + (<tt>Object</tt>) <strong>name</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+673</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 673</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:name</span><span class='comma token'>,</span>                <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span><span class='comma token'>,</span> <span class='symbol val'>:required</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="password-class_method">
+  
+    + (<tt>Object</tt>) <strong>password</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+674</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 674</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:password</span><span class='comma token'>,</span>            <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span><span class='comma token'>,</span> <span class='symbol val'>:required</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="privs-class_method">
+  
+    + (<tt>Object</tt>) <strong>privs</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+675
+676
+677
+678
+679</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 675</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:privs</span><span class='comma token'>,</span>               <span class='rubyid_Flag constant id'>Flag</span><span class='comma token'>,</span>     <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='comma token'>,</span>
+                <span class='symbol val'>:flags</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:auto_editor</span><span class='comma token'>,</span> <span class='symbol val'>:bot</span><span class='comma token'>,</span> <span class='symbol val'>:untrusted</span><span class='comma token'>,</span>
+<span class='symbol val'>:relationship_editor</span><span class='comma token'>,</span> <span class='symbol val'>:dont_nag</span><span class='comma token'>,</span>
+<span class='symbol val'>:wiki_transclusion</span><span class='comma token'>,</span> <span class='symbol val'>:mbid_submitter</span><span class='comma token'>,</span>
+<span class='symbol val'>:account_admin</span><span class='rbrack token'>]</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="updated_at-class_method">
+  
+    + (<tt>Object</tt>) <strong>updated_at</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+690</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 690</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:updated_at</span><span class='comma token'>,</span>          <span class='rubyid_DateTime constant id'>DateTime</span><span class='comma token'>,</span> <span class='symbol val'>:field</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'last_updated'</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="website-class_method">
+  
+    + (<tt>Object</tt>) <strong>website</strong>(repository = nil) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+681</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 681</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:website</span><span class='comma token'>,</span>             <span class='rubyid_URI constant id'>URI</span><span class='comma token'>,</span>      <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>255</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="auto_edits_accepted-instance_method">
+  
+    - (<tt>Object</tt>) <strong>auto_edits_accepted</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+688</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 688</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:auto_edits_accepted</span><span class='comma token'>,</span> <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="auto_edits_accepted=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>auto_edits_accepted=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+688</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 688</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:auto_edits_accepted</span><span class='comma token'>,</span> <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="bio-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bio</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+682</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 682</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:bio</span><span class='comma token'>,</span>                 <span class='rubyid_Text constant id'>Text</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="bio=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>bio=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+682</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 682</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:bio</span><span class='comma token'>,</span>                 <span class='rubyid_Text constant id'>Text</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_accepted-instance_method">
+  
+    - (<tt>Object</tt>) <strong>edits_accepted</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+686</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 686</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_accepted</span><span class='comma token'>,</span>      <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_accepted=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>edits_accepted=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+686</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 686</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_accepted</span><span class='comma token'>,</span>      <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_failed-instance_method">
+  
+    - (<tt>Object</tt>) <strong>edits_failed</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+689</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 689</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_failed</span><span class='comma token'>,</span>        <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_failed=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>edits_failed=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+689</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 689</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_failed</span><span class='comma token'>,</span>        <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_rejected-instance_method">
+  
+    - (<tt>Object</tt>) <strong>edits_rejected</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+687</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 687</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_rejected</span><span class='comma token'>,</span>      <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edits_rejected=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>edits_rejected=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+687</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 687</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:edits_rejected</span><span class='comma token'>,</span>      <span class='rubyid_Integer constant id'>Integer</span><span class='comma token'>,</span>  <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="email-instance_method">
+  
+    - (<tt>Object</tt>) <strong>email</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+680</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 680</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:email</span><span class='comma token'>,</span>               <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="email=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>email=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+680</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 680</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:email</span><span class='comma token'>,</span>               <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="email_confirm_date-instance_method">
+  
+    - (<tt>Object</tt>) <strong>email_confirm_date</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+684</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 684</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:email_confirm_date</span><span class='comma token'>,</span>  <span class='rubyid_DateTime constant id'>DateTime</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="email_confirm_date=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>email_confirm_date=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+684</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 684</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:email_confirm_date</span><span class='comma token'>,</span>  <span class='rubyid_DateTime constant id'>DateTime</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="id-instance_method">
+  
+    - (<tt>Object</tt>) <strong>id</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+672</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 672</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:id</span><span class='comma token'>,</span>                  <span class='rubyid_Serial constant id'>Serial</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="id=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>id=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+672</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 672</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:id</span><span class='comma token'>,</span>                  <span class='rubyid_Serial constant id'>Serial</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="last_login_date-instance_method">
+  
+    - (<tt>Object</tt>) <strong>last_login_date</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+685</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 685</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:last_login_date</span><span class='comma token'>,</span>     <span class='rubyid_DateTime constant id'>DateTime</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="last_login_date=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>last_login_date=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+685</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 685</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:last_login_date</span><span class='comma token'>,</span>     <span class='rubyid_DateTime constant id'>DateTime</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="member_since-instance_method">
+  
+    - (<tt>Object</tt>) <strong>member_since</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+683</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 683</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:member_since</span><span class='comma token'>,</span>        <span class='rubyid_DateTime constant id'>DateTime</span><span class='comma token'>,</span> <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="member_since=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>member_since=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+683</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 683</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:member_since</span><span class='comma token'>,</span>        <span class='rubyid_DateTime constant id'>DateTime</span><span class='comma token'>,</span> <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_Time constant id'>Time</span><span class='dot token'>.</span><span class='rubyid_now identifier id'>now</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="name-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+673</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 673</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:name</span><span class='comma token'>,</span>                <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span><span class='comma token'>,</span> <span class='symbol val'>:required</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="name=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>name=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+673</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 673</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:name</span><span class='comma token'>,</span>                <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span><span class='comma token'>,</span> <span class='symbol val'>:required</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="password-instance_method">
+  
+    - (<tt>Object</tt>) <strong>password</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+674</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 674</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:password</span><span class='comma token'>,</span>            <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span><span class='comma token'>,</span> <span class='symbol val'>:required</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="password=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>password=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+674</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 674</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:password</span><span class='comma token'>,</span>            <span class='rubyid_String constant id'>String</span><span class='comma token'>,</span>   <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>64</span><span class='comma token'>,</span> <span class='symbol val'>:required</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='rubyid_true true kw'>true</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="privs-instance_method">
+  
+    - (<tt>Object</tt>) <strong>privs</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+675
+676
+677
+678
+679</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 675</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:privs</span><span class='comma token'>,</span>               <span class='rubyid_Flag constant id'>Flag</span><span class='comma token'>,</span>     <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='comma token'>,</span>
+                <span class='symbol val'>:flags</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:auto_editor</span><span class='comma token'>,</span> <span class='symbol val'>:bot</span><span class='comma token'>,</span> <span class='symbol val'>:untrusted</span><span class='comma token'>,</span>
+<span class='symbol val'>:relationship_editor</span><span class='comma token'>,</span> <span class='symbol val'>:dont_nag</span><span class='comma token'>,</span>
+<span class='symbol val'>:wiki_transclusion</span><span class='comma token'>,</span> <span class='symbol val'>:mbid_submitter</span><span class='comma token'>,</span>
+<span class='symbol val'>:account_admin</span><span class='rbrack token'>]</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="privs=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>privs=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+675
+676
+677
+678
+679</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 675</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:privs</span><span class='comma token'>,</span>               <span class='rubyid_Flag constant id'>Flag</span><span class='comma token'>,</span>     <span class='symbol val'>:default</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>0</span><span class='comma token'>,</span>
+                <span class='symbol val'>:flags</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='symbol val'>:auto_editor</span><span class='comma token'>,</span> <span class='symbol val'>:bot</span><span class='comma token'>,</span> <span class='symbol val'>:untrusted</span><span class='comma token'>,</span>
+<span class='symbol val'>:relationship_editor</span><span class='comma token'>,</span> <span class='symbol val'>:dont_nag</span><span class='comma token'>,</span>
+<span class='symbol val'>:wiki_transclusion</span><span class='comma token'>,</span> <span class='symbol val'>:mbid_submitter</span><span class='comma token'>,</span>
+<span class='symbol val'>:account_admin</span><span class='rbrack token'>]</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="updated_at-instance_method">
+  
+    - (<tt>Object</tt>) <strong>updated_at</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+690</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 690</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:updated_at</span><span class='comma token'>,</span>          <span class='rubyid_DateTime constant id'>DateTime</span><span class='comma token'>,</span> <span class='symbol val'>:field</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'last_updated'</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="updated_at=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>updated_at=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+690</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 690</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:updated_at</span><span class='comma token'>,</span>          <span class='rubyid_DateTime constant id'>DateTime</span><span class='comma token'>,</span> <span class='symbol val'>:field</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'last_updated'</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="website-instance_method">
+  
+    - (<tt>Object</tt>) <strong>website</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+681</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 681</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:website</span><span class='comma token'>,</span>             <span class='rubyid_URI constant id'>URI</span><span class='comma token'>,</span>      <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>255</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="website=-instance_method">
+  
+    - (<tt>Object</tt>) <strong>website=</strong>(value) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+681</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/brainzmapper.rb', line 681</span>
+
+<span class='rubyid_property identifier id'>property</span> <span class='symbol val'>:website</span><span class='comma token'>,</span>             <span class='rubyid_URI constant id'>URI</span><span class='comma token'>,</span>      <span class='symbol val'>:length</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>255</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Wed Jan  4 21:21:20 2012 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.4 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

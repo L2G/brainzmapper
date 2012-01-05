@@ -21,7 +21,24 @@ ADAPTER = DataMapper.setup(:default, POSTGRES_URI)
 ADAPTER.resource_naming_convention =
     DataMapper::NamingConventions::Resource::Underscored
 
+# FuzzyDate represents MusicBrainz "partial dates." (In fact, this may end up
+# getting renamed PartialDate just to match MusicBrainz's terminology.)
+#
+# FuzzyDate works more or less like Date; in fact, it delegates any undefined
+# method calls to Date. The chief difference is that a FuzzyDate can represent
+# a specific date, or a month within a year, or just a year. An accessor
+# for the date's precision is also provided.
+
+#
 class FuzzyDate < DelegateClass(Date)
+
+    # New instance of FuzzyDate. The month and day may be omitted, or just
+    # the day may be omitted.
+    #
+    # @param [Integer] year
+    # @param [Integer, optional] month
+    # @param [Integer, optional] day
+
     def initialize(year, month, day)
         if month.nil?
             @date_precision = :y
@@ -37,10 +54,29 @@ class FuzzyDate < DelegateClass(Date)
         super(@date_obj)
     end
 
+    # Returns a symbol indicating how much of the date is defined.
+    #
+    # @example
+    #     FuzzyDate.new(1967,9,13).precision
+    #     => :d
+    #     FuzzyDate.new(1967,9).precision
+    #     => :m
+    #     FuzzyDate.new(1967).precision
+    #     => :y
+    #
+    # @return [Symbol] +:d+, +:m+, or +:y+
     def precision
         @date_precision
     end
 
+    # Returns a string representation of the date like Date does, except it
+    # will leave off the day or the month as appropriate.
+    #
+    # @example
+    #     FuzzyDate.new(1967,9).to_s
+    #     => "1967-09"
+    #
+    # @return [String]
     def to_s
         case @date_precision
         when :y
@@ -52,6 +88,8 @@ class FuzzyDate < DelegateClass(Date)
         end
     end
 
+    # @return [Integer, NilClass] Month (1-12), if the month is part of the
+    #   date; nil otherwise.
     def mon
         if @date_precision == :y
             nil
@@ -60,6 +98,8 @@ class FuzzyDate < DelegateClass(Date)
         end
     end
 
+    # @return [Integer, NilClass] Day (of the month), if the day is part of
+    #   the date; nil otherwise.
     def day
         case @date_precision
         when :y, :m
@@ -71,6 +111,7 @@ class FuzzyDate < DelegateClass(Date)
         
 end
 
+# @api private
 module SimpleInspect
     def inspect
         "#<#{self.class} #{self.id}:#{self.name}>"
@@ -87,6 +128,7 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+#
 class Annotation
     include DataMapper::Resource
 
@@ -119,6 +161,7 @@ end
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+#
 class Artist
     include DataMapper::Resource
 
@@ -203,6 +246,7 @@ end
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+#
 class ArtistAlias
     include DataMapper::Resource
 
@@ -225,6 +269,7 @@ end
 #     annotation          INTEGER NOT NULL -- PK, references annotation.id
 # );
 
+#
 class ArtistAnnotation
     include DataMapper::Resource
 
@@ -247,6 +292,7 @@ class AnnotationArtist < ArtistAnnotation; end
 #     rating_count        INTEGER
 # );
 
+#
 class ArtistMeta
     include DataMapper::Resource
 
@@ -262,6 +308,7 @@ end
 #     name                VARCHAR NOT NULL
 # );
 
+#
 class ArtistName
     include DataMapper::Resource
     include SimpleInspect
@@ -280,6 +327,7 @@ end
 #     name                VARCHAR(255) NOT NULL
 # );
 
+#
 class ArtistType
     include DataMapper::Resource
     include SimpleInspect
@@ -301,6 +349,7 @@ end
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+#
 class ArtistTag
     include DataMapper::Resource
 
@@ -341,6 +390,7 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+#
 class ArtistCredit
     include DataMapper::Resource
 
@@ -363,6 +413,7 @@ end
 #     join_phrase         TEXT
 # );
 
+#
 class ArtistCreditName
     include DataMapper::Resource
 
@@ -389,6 +440,7 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+#
 class ArtistGidRedirect
     include DataMapper::Resource
 
@@ -471,6 +523,8 @@ end
 #     name                VARCHAR(255) NOT NULL
 # );
 
+#
+#
 class Country
     include DataMapper::Resource
 
@@ -501,6 +555,7 @@ end
 #     quality             SMALLINT NOT NULL DEFAULT 1
 # );
 
+#
 class Edit
     include DataMapper::Resource
 
@@ -610,6 +665,7 @@ end
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+#
 class Editor
     include DataMapper::Resource
     
@@ -680,6 +736,7 @@ end
 #     name                VARCHAR(255) NOT NULL
 # );
 
+#
 class Gender
     include DataMapper::Resource
     include SimpleInspect
@@ -1115,6 +1172,7 @@ end
 #     frequency           INTEGER NOT NULL DEFAULT 0
 # );
 
+#
 class Language
     include DataMapper::Resource
 
@@ -1580,6 +1638,7 @@ end
 #     ref_count           INTEGER NOT NULL DEFAULT 0
 # );
 
+#
 class Tag
     include DataMapper::Resource
 
