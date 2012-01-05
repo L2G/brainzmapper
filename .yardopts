@@ -1,4 +1,5 @@
 lib/**/*.rb
 -
+features/**/*.feature
 README.rdoc
 COPYING.txt
