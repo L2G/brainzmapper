@@ -1,0 +1,3 @@
+[submodule "ext/musicbrainz-server"]
+	path = ext/musicbrainz-server
+	url = git://git.musicbrainz.org/musicbrainz-server.git
