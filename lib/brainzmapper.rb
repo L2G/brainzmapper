@@ -127,7 +127,7 @@ end
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
-# An annotations is free-form text that accompanies an entry for an artist,
+# An annotation is free-form text that accompanies an entry for an artist,
 # release, track... really most any object in MusicBrainz.
 
 class Annotation
