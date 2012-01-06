@@ -59,10 +59,10 @@ class Editor
     property :name, String, :length => 64, :required => true
 
     # @attribute
-    # Holds the password used by the editor to log in. (Note that in the
-    # public data provided by MusicBrainz, this field is sanitized and does
-    # not hold any real passwords.)
-    # @return [String]
+    # @macro [new] sanitized
+    #   @note In the public data provided by MusicBrainz, this field is
+    #     sanitized for security reasons.
+    # @return [String] The password used to authenticate the editor at login.
     property :password, String, :length => 64, :required => true
 
     # @attribute
@@ -77,6 +77,7 @@ class Editor
     # * +:untrusted+
     # * +:wiki_transclusion+
     # @return [Array<Symbol>] Flags indicating editor's privileges
+    # @macro sanitized
     property :privs, Flag, :default => 0,
                 :flags => [:auto_editor, :bot, :untrusted,
                            :relationship_editor, :dont_nag,
