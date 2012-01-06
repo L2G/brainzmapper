@@ -61,6 +61,7 @@ require 'editor'
 require 'fuzzy_date'
 require 'gender'
 require 'language'
+require 'release'
 require 'tag'
 
 
