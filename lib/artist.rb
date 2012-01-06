@@ -44,17 +44,54 @@
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
+# The model holding information about an artist, whether an individual or a
+# group (band, orchestra, etc.).
 #
+# @see http://musicbrainz.org/doc/Style/Artist
 class Artist
     include DataMapper::Resource
 
-    property :id,  Serial
+    # @attribute [r]
+    # @return [Integer]
+    property :id, Serial
+
+    # @attribute [r]
+    # The global (universally unique) ID for this artist. This is the ID
+    # used in MusicBrainz URLs for artist pages.
+    # @return [UUID]
     property :gid, UUID
 
+    # @deprecated
+    # @attribute
+    # @return [Integer]
+    # @see #name
     property :name_id, Integer, :field => 'name', :required => true
+
+    # @attribute
+    # The object representing the primary name of this artist.  Following
+    # MusicBrainz guidelines, this is the name used in the artist's native
+    # language.
+    # @return [ArtistName]
     belongs_to :name, :model => 'ArtistName'
 
+    # @deprecated
+    # @attribute
+    # @return [Integer]
+    # @see #sort_name
     property :sort_name_id, Integer, :field => 'sort_name', :required => true
+
+    # @attribute
+    # An ArtistName object representing the name used for sorting this artist
+    # in a list. For example, groups with names starting with "The" are
+    # normally sorted with the second word first ("Lonely Island, The"), and
+    # people's names are normally sorted by surname first ("Samberg, Andy").
+    #
+    # Unlike the primary name, this is usually romanized if the native name
+    # is not in Latin script.
+    #
+    # @return [ArtistName] Name used for sorting.
+    #
+    # @see http://musicbrainz.org/doc/Style/Artist/Sortname
     belongs_to :sort_name, :model => 'ArtistName'
 
     property :begin_date_year, Integer
