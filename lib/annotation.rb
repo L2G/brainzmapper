@@ -39,21 +39,21 @@ class Annotation
     include DataMapper::Resource
 
     # @return [Serial]
-    property   :id,        Serial
+    property :id, Serial
 
     # @private
-    property   :editor_id, Integer, :field => 'editor', :required => true
+    property :editor_id, Integer, :field => 'editor', :required => true
 
     # @return [Editor] The editor who wrote this annotation.
     belongs_to :editor
 
     # @return [Text] The text of the annotation.
-    property   :text,      Text
+    property :text, Text
 
     # @return [String] A one-line remark made by the editor about this
     #   annotation.
-    property   :changelog, String, :length => 255
+    property :changelog, String, :length => 255
 
     # @return [DateTime] The date and time the annotation was created.
-    property   :created_at, DateTime, :field => 'created'
+    property :created_at, DateTime, :field => 'created'
 end

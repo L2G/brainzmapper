@@ -34,7 +34,7 @@
 class ArtistAnnotation
     include DataMapper::Resource
 
-    property :artist_id,     Integer, :field => 'artist',     :key => true
+    property :artist_id, Integer, :field => 'artist', :key => true
     property :annotation_id, Integer, :field => 'annotation', :key => true
 
     belongs_to :artist
@@ -42,5 +42,6 @@ class ArtistAnnotation
 end
 
 ##############################################################################
-# DataMapper wants to call it AnnotationArtist instead of ArtistAnnotation
+# Alias for ArtistAnnotation, needed as a shim for DataMapper (until a better
+# way is found).
 class AnnotationArtist < ArtistAnnotation; end

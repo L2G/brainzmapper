@@ -48,40 +48,40 @@
 class Artist
     include DataMapper::Resource
 
-    property   :id,  Serial
-    property   :gid, UUID
+    property :id,  Serial
+    property :gid, UUID
 
-    property   :name_id, Integer, :field => 'name', :required => true
+    property :name_id, Integer, :field => 'name', :required => true
     belongs_to :name, :model => 'ArtistName'
 
-    property   :sort_name_id, Integer, :field => 'sort_name', :required => true
+    property :sort_name_id, Integer, :field => 'sort_name', :required => true
     belongs_to :sort_name, :model => 'ArtistName'
 
-    property   :begin_date_year, Integer
-    property   :begin_date_month, Integer
-    property   :begin_date_day, Integer
+    property :begin_date_year, Integer
+    property :begin_date_month, Integer
+    property :begin_date_day, Integer
 
-    property   :end_date_year, Integer
-    property   :end_date_month, Integer
-    property   :end_date_day, Integer
+    property :end_date_year, Integer
+    property :end_date_month, Integer
+    property :end_date_day, Integer
 
-    property   :artist_type_id, Integer, :field => 'type'
+    property :artist_type_id, Integer, :field => 'type'
     belongs_to :artist_type
 
-    property   :country_id, Integer, :field => 'country'
+    property :country_id, Integer, :field => 'country'
     belongs_to :country
 
-    property   :gender_id, Integer, :field => 'gender'
+    property :gender_id, Integer, :field => 'gender'
     belongs_to :gender
 
-    property   :comment,  String, :length => 255
-    property   :ipi_code, String, :length => 11
-    property   :updated_at, DateTime, :field => 'last_updated'
+    property :comment, String, :length => 255
+    property :ipi_code, String, :length => 11
+    property :updated_at, DateTime, :field => 'last_updated'
 
-    has 0..n,  :aliases,    :model => 'ArtistAlias'
-    has 0..1,  :annotation, :through => :artist_annotation
-    has 0..1,  :meta,       :model => 'ArtistMeta'
-    has 0..n,  :tags,       :through => :artist_tag
+    has 0..n, :aliases, :model => 'ArtistAlias'
+    has 0..1, :annotation, :through => :artist_annotation
+    has 0..1, :meta, :model => 'ArtistMeta'
+    has 0..n, :tags, :through => :artist_tag
 
     def begin_date
         y, m, d = begin_date_year, begin_date_month, begin_date_day
