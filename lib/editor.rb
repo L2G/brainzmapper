@@ -98,7 +98,7 @@ class Editor
 
     # @attribute
     # @return [DateTime] When the editor registered this account.
-    property :member_since, DateTime, :default => Time.now
+    property :created_at, DateTime, :field => 'member_since'
 
     # @attribute
     # @return [DateTime, nil] When the editor's email address was confirmed;
