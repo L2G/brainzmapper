@@ -44,7 +44,6 @@ class FuzzyDate < DelegateClass(Date)
     def initialize(year, month, day)
         if month.nil?
             @date_precision = :y
-            super(year)
         else
             if day.nil?
                 @date_precision = :m
