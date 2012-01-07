@@ -103,6 +103,7 @@ require 'language'
 require 'release'
 require 'release_name'
 require 'tag'
+require 'url'
 
 
 POSTGRES_URI = 'postgres://musicbrainz_rw@localhost/musicbrainz_db?search_path=musicbrainz'

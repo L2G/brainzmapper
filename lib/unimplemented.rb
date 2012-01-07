@@ -1095,18 +1095,6 @@
 # );
 
 ##############################################################################
-# CREATE TABLE url
-# (
-#     id                  SERIAL,
-#     gid                 UUID NOT NULL,
-#     url                 TEXT NOT NULL,
-#     description         TEXT,
-#     ref_count           INTEGER NOT NULL DEFAULT 0,
-#     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
-#     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-# );
-
-##############################################################################
 # CREATE TABLE url_gid_redirect
 # (
 #     gid                 UUID NOT NULL, -- PK
