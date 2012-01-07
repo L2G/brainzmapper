@@ -34,12 +34,51 @@ require 'data_mapper'
 require 'date'
 require 'delegate'
 
-# @api private
-module SimpleInspect
-    def inspect
-        "#<#{self.class} #{self.id}:#{self.name}>"
+
+# @abstract
+#
+# SimpleIdNameModel is here for models to include when all they need to
+# implement are a resource ID and a string for a name.
+#
+# In addition to including {DataMapper::Resource}, it provides these properties:
+#
+# id::   resource ID used as parent ID in other tables
+# name:: string 1-255 characters long
+#
+# It also provides minimalized +inspect+ and +to_s+ methods. Here are examples
+# from {Country}.
+#
+# @example
+#    Country[7].inspect
+#    => "#<Country 8:Antarctica>"
+#    Country[7].to_s
+#    => "Antarctica"
+#
+module SimpleIdNameModel
+    protected
+    def self.included(heir)
+        heir.class_eval do
+            include DataMapper::Resource
+
+            # @attribute [r]
+            # @return [Integer]
+            property :id, DataMapper::Property::Serial
+
+            # @attribute [rw]
+            # @return [String]
+            property :name, String, :length => 1..255
+
+            def inspect
+                "#<#{self.class} #{id}:#{name}>"
+            end
+
+            def to_s
+                name
+            end
+        end
     end
 end
+
 
 # Model/resource definitions
 

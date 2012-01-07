@@ -32,13 +32,6 @@
 
 #
 class Country
-    include DataMapper::Resource
-
-    property :id,       Serial
+    include SimpleIdNameModel
     property :iso_code, String, :length => 2,   :required => true
-    property :name,     String, :length => 255, :required => true
-
-    def to_s
-        name
-    end
 end

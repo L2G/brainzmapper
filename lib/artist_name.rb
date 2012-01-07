@@ -31,13 +31,5 @@
 
 #
 class ArtistName
-    include DataMapper::Resource
-    include SimpleInspect
-
-    property :id, Serial
-    property :name, String
-
-    def to_s
-        name
-    end
+    include SimpleIdNameModel
 end
