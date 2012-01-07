@@ -30,8 +30,24 @@
 #     name                VARCHAR(255) NOT NULL
 # );
 
+# Information about countries of the world.
+# 
+# This has the properties implemented in {SimpleIdNameModel} (+id+, +name+,
+# +inspect+, and +to_s+) as well as the additional property below.
 #
 class Country
     include SimpleIdNameModel
+
+    # @attribute
+    # A two-letter code for this country. These are "alpha-2" codes defined by 
+    # ISO 3166-1, hence the name.
+    #
+    # @see
+    #   http://www.iso.org/iso/country_codes/iso-3166-1_decoding_table.htm
+    #   ISO 3166-1 decoding table
+    #
+    # @return
+    #   [String] ISO code
+
     property :iso_code, String, :length => 2,   :required => true
 end
