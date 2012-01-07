@@ -101,6 +101,7 @@ require 'fuzzy_date'
 require 'gender'
 require 'language'
 require 'release'
+require 'release_name'
 require 'tag'
 
 

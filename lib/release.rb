@@ -35,13 +35,13 @@ class Release
     property :gid, UUID, :required => true
 
     # @attribute
+    # @deprecated Use {#name}.
     # @return [Integer]
     property :name_id, Integer, :field => 'name', :required => true
 
     # @attribute
-    # @return [ReleaseName]
-    # @macro parent_unimplemented
-    #   @note Parent model not implemented yet; use {#$1_id} for now.
+    # Name of the release.
+    # @return [ReleaseName] convertible to string with +to_s+
     belongs_to :name, :model => 'ReleaseName'
 
     # @attribute
