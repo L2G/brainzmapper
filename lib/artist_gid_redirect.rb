@@ -40,5 +40,5 @@ class ArtistGidRedirect
     property :new_id, Integer, :required => true
     belongs_to :new_artist, :model => 'Artist', :child_key => [:new_id]
 
-    property :created, DateTime, :default => Time.now
+    property :created_at, DateTime, :field => 'created'
 end
