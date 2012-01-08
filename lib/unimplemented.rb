@@ -610,21 +610,6 @@
 # );
 
 ##############################################################################
-# CREATE TABLE link
-# (
-#     id                  SERIAL,
-#     link_type           INTEGER NOT NULL, -- references link_type.id
-#     begin_date_year     SMALLINT,
-#     begin_date_month    SMALLINT,
-#     begin_date_day      SMALLINT,
-#     end_date_year       SMALLINT,
-#     end_date_month      SMALLINT,
-#     end_date_day        SMALLINT,
-#     attribute_count     INTEGER NOT NULL DEFAULT 0,
-#     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-# );
-
-##############################################################################
 # CREATE TABLE link_attribute
 # (
 #     link                INTEGER NOT NULL, -- PK, references link.id
@@ -642,24 +627,6 @@
 #     gid                 UUID NOT NULL,
 #     name                VARCHAR(255) NOT NULL,
 #     description         TEXT,
-#     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-# );
-
-##############################################################################
-# CREATE TABLE link_type
-# (
-#     id                  SERIAL,
-#     parent              INTEGER, -- references link_type.id
-#     child_order         INTEGER NOT NULL DEFAULT 0,
-#     gid                 UUID NOT NULL,
-#     entity_type0        VARCHAR(50) NOT NULL,
-#     entity_type1        VARCHAR(50) NOT NULL,
-#     name                VARCHAR(255) NOT NULL,
-#     description         TEXT,
-#     link_phrase         VARCHAR(255) NOT NULL,
-#     reverse_link_phrase VARCHAR(255) NOT NULL,
-#     short_link_phrase   VARCHAR(255) NOT NULL,
-#     priority            INTEGER NOT NULL DEFAULT 0,
 #     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
