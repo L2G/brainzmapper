@@ -1,6 +1,6 @@
 # release_name.rb
 # 
-# Copyright (c) 2011, 2012 Lawrence Leonard Gilbert
+# Copyright (c) 2012 Lawrence Leonard Gilbert
 #
 # The SQL code (incorporated for documentation purposes) comes from the
 # MusicBrainz Server project, copyright of the MetaBrainz Foundation and
