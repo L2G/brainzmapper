@@ -84,3 +84,4 @@ end
 AdvancedRelationship = AR
 
 require 'ar/artist_url'
+require 'ar/release_url'

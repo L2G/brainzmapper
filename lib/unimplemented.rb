@@ -440,17 +440,6 @@
 # );
 
 ##############################################################################
-# CREATE TABLE l_release_url
-# (
-#     id                  SERIAL,
-#     link                INTEGER NOT NULL, -- references link.id
-#     entity0             INTEGER NOT NULL, -- references release.id
-#     entity1             INTEGER NOT NULL, -- references url.id
-#     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
-#     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-# );
-
-##############################################################################
 # CREATE TABLE l_release_work
 # (
 #     id                  SERIAL,
