@@ -34,7 +34,7 @@
 
 # The URL object encapsulates a URL (usually http/https) and an optional
 # description.
-class URL
+class Url
     include DataMapper::Resource
 
     # @attribute
