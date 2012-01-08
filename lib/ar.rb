@@ -55,28 +55,38 @@ module AR
             # @return [Integer]
             property :id, DataMapper::Property::Serial
 
-            # @attribute [rw]
-            property :link, Integer
+            # @attribute
+            # @return [Integer]
+            property :link_id, Integer, :field => 'link'
 
             # @attribute
-            property :entity0, Integer
+            # @return [Link]
+            belongs_to :link
 
             # @attribute
-            property :entity1, Integer
+            property :entity0_id, Integer, :field => 'entity0'
 
-            belongs_to _entity0.to_sym,
-                :model => DataMapper::Inflector.camelize(_entity0.to_sym),
-                :child_key => [:entity0]
+            # @attribute
+            property :entity1_id, Integer, :field => 'entity1'
 
-            belongs_to _entity1.to_sym,
-                :model => DataMapper::Inflector.camelize(_entity1.to_sym),
-                :child_key => [:entity1]
+            belongs_to :entity0,
+                :model => DataMapper::Inflector.camelize(_entity0.to_sym)
+
+            belongs_to :entity1,
+                :model => DataMapper::Inflector.camelize(_entity1.to_sym)
+
+            alias_method _entity0.to_sym, :entity0
+            alias_method _entity1.to_sym, :entity1
 
             # @attribute
             property :edits_pending, Integer
 
             # @attribute
             property :updated_at, DateTime, :field => 'last_updated'
+
+            def to_s
+                return "#{self.entity0} #{self.link.link_type} #{self.entity1}"
+            end
         end
     end
 end
