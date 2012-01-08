@@ -22,6 +22,8 @@
 # this program; if not, write to the Free Software Foundation, Inc., 675 Mass
 # Ave, Cambridge, MA 02139, USA.
 
+require 'date'
+require 'delegate'
 
 ###############################################################################
 # FuzzyDate represents MusicBrainz "partial dates." (In fact, this may end up

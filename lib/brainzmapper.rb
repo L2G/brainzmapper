@@ -31,8 +31,6 @@
 
 require 'rubygems'
 require 'data_mapper'
-require 'date'
-require 'delegate'
 
 # @abstract
 #
