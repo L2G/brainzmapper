@@ -77,7 +77,6 @@ class LinkType
     # @return [String]
     property :name, String, :length => 1..255
 
-
     # @attribute
     # @return [String]
     property :description, Text
@@ -107,4 +106,6 @@ class LinkType
     def children
         self.class.all(:parent_id => self.id, :order => [:child_order.asc])
     end
+
+    alias_method :to_s, :short_link_phrase
 end

@@ -153,4 +153,13 @@ class Artist
     def rating_count=(new_count)
         meta.rating_count = new_count
     end
+
+    def to_s
+        working_name = self.name.to_s
+        if self.comment and (self.comment != '')
+            working_comment = self.comment.to_s.tr('()', '[]')
+            working_name += " (#{working_comment})"
+        end
+        return working_name
+    end
 end

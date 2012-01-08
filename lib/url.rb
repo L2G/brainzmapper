@@ -71,4 +71,6 @@ class Url
     # @attribute
     # @return [DateTime]
     property :updated_at, DateTime, :field => 'last_updated'
+
+    alias_method :to_s, :url
 end
