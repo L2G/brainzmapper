@@ -898,18 +898,6 @@
 # );
 
 ##############################################################################
-# CREATE TABLE release_group (
-#     id                  SERIAL,
-#     gid                 UUID NOT NULL,
-#     name                INTEGER NOT NULL, -- references release_name.id
-#     artist_credit       INTEGER NOT NULL, -- references artist_credit.id
-#     type                INTEGER, -- references release_group_type.id
-#     comment             VARCHAR(255),
-#     edits_pending       INTEGER NOT NULL DEFAULT 0 CHECK (edits_pending >= 0),
-#     last_updated        TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-# );
-
-##############################################################################
 # CREATE TABLE release_group_rating_raw
 # (
 #     release_group       INTEGER NOT NULL, -- PK, references release_group.id
