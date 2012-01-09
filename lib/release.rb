@@ -78,32 +78,34 @@ class Release
     belongs_to :artist_credit
 
     # @attribute
+    # @deprecated Use {#release_group}.
     # @return [Integer]
     property :release_group_id, Integer, :field => 'release_group',
                 :required => true
 
     # @attribute
     # @return [ReleaseGroup]
-    # @macro parent_unimplemented
     belongs_to :release_group
 
     # @attribute
     # @return [Integer, nil]
+    # @todo There will be a +#status+ method for this.
     property :status_id, Integer, :field => 'status'
 
     # @attribute
     # @return [ReleaseStatus, nil]
-    # @macro parent_unimplemented
-    belongs_to :status, :model => 'ReleaseStatus'
+    # TODO
+    #belongs_to :status, :model => 'ReleaseStatus'
 
     # @attribute
     # @return [Integer, nil]
+    # @todo There will be a +#packaging+ method for this.
     property :packaging_id, Integer, :field => 'packaging'
 
     # @attribute
     # @return [ReleasePackaging, nil]
-    # @macro parent_unimplemented
-    belongs_to :packaging, :model => 'ReleasePackaging'
+    # TODO
+    #belongs_to :packaging, :model => 'ReleasePackaging'
 
     # @attribute
     # @deprecated Use {#country}.
@@ -125,26 +127,27 @@ class Release
 
     # @attribute
     # @return [Integer, nil]
+    # @todo There will be a +#script+ method for this.
     property :script_id, Integer, :field => 'script'
 
     # @attribute
     # @return [Script, nil]
-    # @macro parent_unimplemented
-    belongs_to :script
+    # TODO
+    #belongs_to :script
 
     # @attribute
     # @return [Integer, nil]
-    # @note This will be superseded by a #date method (returning {FuzzyDate}).
+    # @todo This will be superseded by a #date method (returning {FuzzyDate}).
     property :date_year, Integer
 
     # @attribute
     # @return [Integer, nil]
-    # @note This will be superseded by a #date method (returning {FuzzyDate}).
+    # @todo This will be superseded by a #date method (returning {FuzzyDate}).
     property :date_month, Integer
 
     # @attribute
     # @return [Integer, nil]
-    # @note This will be superseded by a #date method (returning {FuzzyDate}).
+    # @todo This will be superseded by a #date method (returning {FuzzyDate}).
     property :date_day, Integer
 
     # @attribute
