@@ -68,13 +68,13 @@ class ReleaseGroup
 
     # @attribute
     # @return [Integer, nil]
+    # @todo There will be a +#type+ method for this (returning {ReleaseType}).
     property :type_id, Integer, :field => 'type'
 
     # @attribute
     # @return [ReleaseGroupType, nil]
-    # @macro parent_unimplemented
-    # @todo TODO
-    #belongs_to :type, ReleaseGroupType
+    # TODO
+    #belongs_to :type, :model => 'ReleaseGroupType'
 
     # @attribute
     # @return [String, nil]
@@ -85,7 +85,12 @@ class ReleaseGroup
     property :edits_pending, Integer, :default => 0
 
     # @attribute
-    # @return [DateTime]
+    #
+    # This property is automatically changed whenever the record is updated.
+    # It does not need to be set except to force a particular timestamp.
+    #
+    # @return [DateTime] Date and time of last update 
+
     property :updated_at, DateTime, :field => 'last_updated'
 end
 
