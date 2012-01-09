@@ -160,7 +160,8 @@ class Release
 
     # @attribute
     # @return [Integer]
-    property :edits_pending, Integer, :default => 0
+    property :edits_pending, Integer, :default => 0, :required => true
+    validates_within :edits_pending, :set => 0..n
 
     # @attribute
     # @return [Integer]
