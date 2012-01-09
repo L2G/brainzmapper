@@ -61,7 +61,7 @@ class LinkType
 
     # @attribute
     # @return [UUID]
-    property :gid, UUID
+    property :gid, UUID, :required => true
 
     # @attribute
     # What's on the "left" side of this link type.

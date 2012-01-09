@@ -43,7 +43,7 @@ class Url
 
     # @attribute
     # @return [UUID]
-    property :gid, UUID
+    property :gid, UUID, :required => true
 
     # @attribute
     # @return [String]

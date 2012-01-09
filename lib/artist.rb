@@ -59,7 +59,7 @@ class Artist
     # The global (universally unique) ID for this artist. This is the ID
     # used in MusicBrainz URLs for artist pages.
     # @return [UUID]
-    property :gid, UUID
+    property :gid, UUID, :required => true
 
     # @deprecated
     # @attribute
@@ -113,6 +113,9 @@ class Artist
 
     property :comment, String, :length => 255
     property :ipi_code, String, :length => 11
+    property :edits_pending, Integer, :required => true, :default => 0
+    validates_within :edits_pending, :set => 0..n
+
     property :updated_at, DateTime, :field => 'last_updated'
 
     has 0..n, :aliases, :model => 'ArtistAlias'

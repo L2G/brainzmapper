@@ -42,6 +42,6 @@ class ArtistCredit
     belongs_to :name, :model => 'ArtistName', :child_key => [:artist_name_id]
 
     property :artist_count, Integer, :required => true;
-    property :ref_count,    Integer, :default => true;
+    property :ref_count,    Integer, :default => 0;
     property :created_at,   DateTime, :field => 'created'
 end

@@ -45,7 +45,9 @@ class ArtistAlias
     belongs_to :artist
     belongs_to :name, :model => 'ArtistName', :child_key => [:artist_name_id]
 
-    property :locale, Text, :lazy => false
+    property :locale, Text
     property :edits_pending, Integer, :required => true, :default => 0
+    validates_within :edits_pending, :set => 0..n
+
     property :updated_at, DateTime, :field => 'last_updated'
 end
