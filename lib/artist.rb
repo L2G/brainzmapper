@@ -118,9 +118,9 @@ class Artist
 
     property :updated_at, DateTime, :field => 'last_updated'
 
-    has 0..n, :aliases, :model => 'ArtistAlias'
-    has 0..1, :annotation, :through => :artist_annotation
-    has 0..1, :meta, :model => 'ArtistMeta'
+    has 0..n, :aliases, :model => :artist_alias
+    has 0..n, :annotations, :through => :artist_annotation
+    has 0..1, :meta, :model => :artist_meta
     has 0..n, :tags, :through => :artist_tag
 
     def begin_date
