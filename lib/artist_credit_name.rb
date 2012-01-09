@@ -49,4 +49,10 @@ class ArtistCreditName
     belongs_to :artist_name
 
     property :join_phrase, Text, :lazy => false
+
+    def to_s
+        join_phrase.nil? ?
+            artist_name.to_s :
+            artist_name.to_s + join_phrase
+    end
 end

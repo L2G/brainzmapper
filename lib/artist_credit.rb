@@ -44,4 +44,10 @@ class ArtistCredit
     property :artist_count, Integer, :required => true;
     property :ref_count,    Integer, :default => 0;
     property :created_at,   DateTime, :field => 'created'
+
+    has 0..n, :artist_credit_names
+
+    def to_s
+        artist_credit_names.join
+    end
 end
