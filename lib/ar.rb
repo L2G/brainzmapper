@@ -69,14 +69,13 @@ module AR
             # @attribute
             property :entity1_id, Integer, :field => 'entity1'
 
-            belongs_to :entity0,
-                :model => DataMapper::Inflector.camelize(_entity0.to_sym)
+            belongs_to _entity0.to_sym,
+                :model => DataMapper::Inflector.camelize(_entity0.to_sym),
+                :child_key => [:entity0_id]
 
-            belongs_to :entity1,
-                :model => DataMapper::Inflector.camelize(_entity1.to_sym)
-
-            alias_method _entity0.to_sym, :entity0
-            alias_method _entity1.to_sym, :entity1
+            belongs_to _entity1.to_sym,
+                :model => DataMapper::Inflector.camelize(_entity1.to_sym),
+                :child_key => [:entity1_id]
 
             # @attribute
             property :edits_pending, Integer
