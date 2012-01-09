@@ -92,5 +92,8 @@ class ReleaseGroup
     # @return [DateTime] Date and time of last update 
 
     property :updated_at, DateTime, :field => 'last_updated'
+
+    # @attribute
+    has 0..n, :releases, :model => 'Release'
 end
 
