@@ -39,17 +39,37 @@
 # entity1::
 # edits_pending::
 # last_updated::
+#
+# Models that inherit from this have accessors named for each type of
+# entity; for example, AR::ArtistUrl has #artist and #url accessors. If both
+# entities are the same type, then the accessors will be given distinct names,
+# e.g. #from_artist and #to_artist.
 
 module AR
     protected
     def self.included(heir)
 
+        # Define the accessors with names after the models
+
         _entity0 = heir.class_eval('ENTITY_0')
         _entity1 = heir.class_eval('ENTITY_1')
 
+        _entity0_model = DataMapper::Inflector.camelize(_entity0)
+        _entity1_model = DataMapper::Inflector.camelize(_entity1)
+
+        # Generate distinct accessor names if both are for the same model
+
+        if _entity0 == _entity1
+            _entity0_sym = "from_#{_entity0}".to_sym
+            _entity1_sym = "to_#{_entity1}".to_sym
+        else
+            _entity0_sym = _entity0.to_sym
+            _entity1_sym = _entity1.to_sym
+        end
+
         heir.class_eval do
             include DataMapper::Resource
-            storage_names[:default] = "l_" + _entity0.to_s + "_" + _entity1.to_s
+            storage_names[:default] = "l_#{_entity0}_#{_entity1}"
 
             # @attribute [r]
             # @return [Integer]
@@ -69,12 +89,12 @@ module AR
             # @attribute
             property :entity1_id, Integer, :field => 'entity1'
 
-            belongs_to _entity0.to_sym,
-                :model => DataMapper::Inflector.camelize(_entity0.to_sym),
+            belongs_to _entity0_sym,
+                :model => _entity0_model,
                 :child_key => [:entity0_id]
 
-            belongs_to _entity1.to_sym,
-                :model => DataMapper::Inflector.camelize(_entity1.to_sym),
+            belongs_to _entity1_sym,
+                :model => _entity1_model,
                 :child_key => [:entity1_id]
 
             # @attribute
@@ -82,15 +102,20 @@ module AR
 
             # @attribute
             property :updated_at, DateTime, :field => 'last_updated'
-
-            def to_s
-                return "#{self.entity0} #{self.link.link_type} #{self.entity1}"
-            end
         end
+        
+        heir.class_eval <<END
+            def to_s
+                return #{_entity0_sym}.to_s + ' ' +
+                       self.link.link_type.to_s + ' ' +
+                       #{_entity1_sym}.to_s
+            end
+END
     end
 end
 
 AdvancedRelationship = AR
 
+require 'ar/artist_artist'
 require 'ar/artist_url'
 require 'ar/release_url'
