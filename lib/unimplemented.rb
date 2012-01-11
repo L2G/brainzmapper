@@ -77,19 +77,6 @@
 # );
 
 ##############################################################################
-# CREATE TABLE cdtoc
-# (
-#     id                  SERIAL,
-#     discid              CHAR(28) NOT NULL,
-#     freedb_id           CHAR(8) NOT NULL,
-#     track_count         INTEGER NOT NULL,
-#     leadout_offset      INTEGER NOT NULL,
-#     track_offset        INTEGER[] NOT NULL,
-#     degraded            BOOLEAN NOT NULL DEFAULT FALSE,
-#     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-# );
-
-##############################################################################
 # CREATE TABLE cdtoc_raw
 # (
 #     id                  SERIAL,
