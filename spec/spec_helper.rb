@@ -10,3 +10,8 @@ Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
 RSpec.configure do |config|
   
 end
+
+# Set up BrainzMapper to use local Postgres server
+BrainzMapper.setup(:default,
+    'postgres://musicbrainz_rw@localhost/musicbrainz_db?search_path=musicbrainz'
+)
