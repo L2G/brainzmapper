@@ -20,8 +20,7 @@
 # this program; if not, write to the Free Software Foundation, Inc., 675 Mass
 # Ave, Cambridge, MA 02139, USA.
 
-# This represents an {AR advanced relationship} between an {Artist} and an
-# {Url}.
+# This represents an {AR advanced relationship} between two {Artist}s.
 
 class AR::ArtistArtist
     ENTITY_0 = :artist
