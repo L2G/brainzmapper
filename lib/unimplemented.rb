@@ -597,14 +597,6 @@
 # );
 
 ##############################################################################
-# CREATE TABLE link_attribute
-# (
-#     link                INTEGER NOT NULL, -- PK, references link.id
-#     attribute_type      INTEGER NOT NULL, -- PK, references link_attribute_type.id
-#     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-# );
-
-##############################################################################
 # CREATE TABLE link_attribute_type
 # (
 #     id                  SERIAL,

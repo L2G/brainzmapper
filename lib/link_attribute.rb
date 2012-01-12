@@ -1,4 +1,4 @@
-# link.rb
+# link_attribute.rb
 # 
 # Copyright (c) 2012 Lawrence Leonard Gilbert
 #
@@ -20,52 +20,36 @@
 # this program; if not, write to the Free Software Foundation, Inc., 675 Mass
 # Ave, Cambridge, MA 02139, USA.
 
-
 ##############################################################################
-# CREATE TABLE link
+# CREATE TABLE link_attribute
 # (
-#     id                  SERIAL,
-#     link_type           INTEGER NOT NULL, -- references link_type.id
-#     begin_date_year     SMALLINT,
-#     begin_date_month    SMALLINT,
-#     begin_date_day      SMALLINT,
-#     end_date_year       SMALLINT,
-#     end_date_month      SMALLINT,
-#     end_date_day        SMALLINT,
-#     attribute_count     INTEGER NOT NULL DEFAULT 0,
+#     link                INTEGER NOT NULL, -- PK, references link.id
+#     attribute_type      INTEGER NOT NULL, -- PK, references link_attribute_type.id
 #     created             TIMESTAMP WITH TIME ZONE DEFAULT NOW()
 # );
 
-#
-class Link
+# Links may have attributes attached to them, depending on the link type. This
+# is the class for link attributes.
+
+class LinkAttribute
     include DataMapper::Resource
 
     # @attribute
+    # @deprecated Use {#link}.
     # @return [Integer]
-    property :id, Serial
+    property :link_id, Integer, :required => true, :key => true, :field => 'link'
 
     # @attribute
-    # @deprecated Use {#link_type}.
+    # @return [Link] The link to which this attribute is assigned.
+    belongs_to :link
+
+    # @attribute
+    # @deprecated Use {#attribute_type}.
     # @return [Integer]
-    property :link_type_id, Integer, :required => true, :field => 'link_type'
+    property :attribute_type_id, Integer, :required => true, :key => true,
+        :field => 'attribute_type'
 
     # @attribute
-    # @return [LinkType]
-    belongs_to :link_type
-
-    # @attribute
-    #
-    # How many attributes this link has. Attributes give more specifics about
-    # a link (e.g. a performance versus a _live_ performance).
-    #
-    # @return [Integer]
-    property :attribute_count, Integer, :default => 0
-
-    # @attribute
-    # @return [DateTime]
-    property :created_at, DateTime, :field => 'created'
-
-    # @attribute
-    # @return [Array<LinkAttribute>]
-    has 0..n, :link_attributes
+    # @return [AttributeType] The type of this attribute.
+    belongs_to :attribute_type, :model => 'LinkAttributeType'
 end
