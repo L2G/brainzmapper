@@ -14,4 +14,9 @@ shared_examples_for "a DataMapper model" do
             described_class.count.should be > 0
         end
     end
+
+    it "casts to a 'nice' string (doesn't look like #<...>)" do
+        string = described_class.first.to_s
+        string.should_not match(/^#<.*>$/)
+    end
 end
