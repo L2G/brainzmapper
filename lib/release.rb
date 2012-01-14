@@ -170,5 +170,9 @@ class Release
     # @attribute
     # @return [DateTime]
     property :updated_at, DateTime, :field => 'last_updated'
+
+    # @attribute
+    # @return [ReleaseMeta]
+    has 0..1, :meta, :model => 'ReleaseMeta', :child_key => [:id]
 end
 
