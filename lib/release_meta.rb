@@ -60,4 +60,7 @@ class ReleaseMeta
     # Don't know what to do about cover_art_presence yet...
     # Doesn't look like DataMapper can handle an SQL enum?
 
+    def to_s
+        self.info_url.to_s
+    end
 end

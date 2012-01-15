@@ -133,4 +133,6 @@ class Editor
     # @attribute
     # @return [DateTime, nil] When this editor's account was last updated.
     property :updated_at, DateTime, :field => 'last_updated'
+
+    alias_method :to_s, :name
 end

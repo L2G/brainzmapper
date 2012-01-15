@@ -50,4 +50,8 @@ class ArtistAlias
     validates_within :edits_pending, :set => 0..n
 
     property :updated_at, DateTime, :field => 'last_updated'
+
+    def to_s
+        self.name.to_s
+    end
 end

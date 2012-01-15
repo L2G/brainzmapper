@@ -70,5 +70,9 @@ class CDTOC
     # @attribute
     # @return [DateTime]
     property :created_at, DateTime, :field => 'created'
+
+    def to_s
+        self.discid
+    end
 end
 

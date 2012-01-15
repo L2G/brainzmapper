@@ -44,4 +44,8 @@ class Language
     property :iso_code_2,  String,  :length => 2
     property :name,        String,  :length => 100, :required => true
     property :frequency,   Integer, :required => true, :default => 0
+
+    def to_s
+        self.name
+    end
 end

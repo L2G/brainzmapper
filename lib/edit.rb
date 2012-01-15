@@ -68,4 +68,48 @@ class Edit
     belongs_to :language
 
     property   :quality, Integer, :required => true, :default => 1
+
+    # A multi-line, human-readable string with all of the attributes of
+    # the edit.
+    # @todo The type should show a name, not a number, of course. And the
+    # timestamps in the edit data could be more human-readable.
+    # @return [String] Human-readable description of the edit
+    def to_s
+        unless Hash.respond_to?(:to_yaml)
+            require 'yaml'
+        end
+
+        now = DateTime.now
+        string = "Edit \##{self.id}\n" +
+                 "Type: #{self.type}\n" +
+                 "Opened: #{self.open_time}\n"
+
+        if self.expire_time > now
+            string += "Expires: #{self.expire_time}\n"
+        else
+            string += "Expired: #{self.expire_time}\n"
+        end
+
+        unless self.close_time.nil?
+            if self.close_time > now
+                string += "Closes: #{self.close_time}\n"
+            else
+                string += "Closed: #{self.close_time}\n"
+            end
+        end
+
+        string += "Status: #{self.status}\n"
+        if self.autoedit == 1
+            string += "Votes: (auto-edit, no votes)\n"
+        else
+            string += "Votes: #{self.yes_votes} yes, #{self.no_votes} no\n"
+        end
+
+        unless self.language.nil?
+            string += "Language: #{self.language}\n"
+        end
+        string += self.data.to_yaml.gsub(/^/,'      ').
+                                    gsub(/^.*---/,'Data: ---')
+        return string
+    end
 end

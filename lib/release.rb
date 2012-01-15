@@ -174,5 +174,14 @@ class Release
     # @attribute
     # @return [ReleaseMeta]
     has 0..1, :meta, :model => 'ReleaseMeta', :child_key => [:id]
+
+    def to_s
+        if self.comment.nil?
+            return self.name.to_s
+        else
+            return "#{self.name} (#{self.comment})"
+        end
+    end
+            
 end
 

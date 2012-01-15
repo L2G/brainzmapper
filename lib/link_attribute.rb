@@ -52,4 +52,8 @@ class LinkAttribute
     # @attribute
     # @return [AttributeType] The type of this attribute.
     belongs_to :attribute_type, :model => 'LinkAttributeType'
+
+    def to_s
+        self.attribute_type.to_s
+    end
 end

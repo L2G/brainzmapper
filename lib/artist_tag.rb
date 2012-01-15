@@ -46,4 +46,8 @@ class ArtistTag
              :required => true
 
     property :updated_at, DateTime, :field => 'last_updated'
+
+    def to_s
+        self.tag.to_s
+    end
 end

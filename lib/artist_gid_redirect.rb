@@ -41,4 +41,8 @@ class ArtistGidRedirect
     belongs_to :new_artist, :model => 'Artist', :child_key => [:new_id]
 
     property :created_at, DateTime, :field => 'created'
+
+    def to_s
+        self.new_artist.to_s
+    end
 end

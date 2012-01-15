@@ -33,7 +33,7 @@
 
 #
 class Tag
-    include DataMapper::Resource
+    include SimpleIdNameModel
 
     property :id,        Serial
     property :name,      String,  :length => 255

@@ -56,4 +56,7 @@ class Annotation
 
     # @return [DateTime] The date and time the annotation was created.
     property :created_at, DateTime, :field => 'created'
+
+    alias_method :to_s, :text
+
 end

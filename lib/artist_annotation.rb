@@ -39,6 +39,10 @@ class ArtistAnnotation
 
     belongs_to :artist
     belongs_to :annotation 
+
+    def to_s
+        self.annotation.to_s
+    end
 end
 
 ##############################################################################

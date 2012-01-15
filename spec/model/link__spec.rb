@@ -14,4 +14,14 @@ describe Link do
         end
     end
 
+    describe "#to_s" do
+        it "substitutes attribute names in the formed string" do
+            0.upto(3) do |n|
+                Link.all(:attribute_count => n, :limit => 10).each do |link|
+                    link.to_s.should_not match(/[\{\}]/)
+                end
+            end
+        end
+    end
+
 end

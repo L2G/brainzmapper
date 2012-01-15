@@ -68,4 +68,15 @@ class Link
     # @attribute
     # @return [Array<LinkAttribute>]
     has 0..n, :link_attributes
+
+    def to_s
+        string = self.link_type.to_s.clone
+        attrs = self.link_attributes.collect {|a| a.to_s}
+        attrs.each do |attr|
+            string.gsub!(/\{#{attr}:([^\|\}]+).*\}/, '\1')
+            string.gsub!(/\{(#{attr})\}/, '\1')
+        end
+        string.gsub!(/\{[^\|\}]+\|?(.*?)\}/, '\1')
+        return string
+    end
 end

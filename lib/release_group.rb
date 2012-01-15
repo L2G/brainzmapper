@@ -95,5 +95,14 @@ class ReleaseGroup
 
     # @attribute
     has 0..n, :releases, :model => 'Release'
+
+    def to_s
+        if self.comment.nil?
+            return self.name.to_s
+        else
+            return "#{self.name} (#{self.comment})"
+        end
+    end
+
 end
 
