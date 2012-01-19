@@ -117,5 +117,6 @@ end
 AdvancedRelationship = AR
 
 require 'ar/artist_artist'
+require 'ar/artist_release'
 require 'ar/artist_url'
 require 'ar/release_url'
