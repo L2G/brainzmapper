@@ -23,7 +23,7 @@ Jeweler::Tasks.new do |gem|
   gem.authors = ["Lawrence Leonard Gilbert"]
   # dependencies defined in Gemfile
 end
-Jeweler::RubygemsDotOrgTasks.new
+##Jeweler::RubygemsDotOrgTasks.new
 
 require 'rspec/core'
 require 'rspec/core/rake_task'
