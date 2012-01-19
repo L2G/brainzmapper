@@ -1,4 +1,4 @@
-# shared_datamapper_model_spec.rb
+# sharedspec_datamapper_model.rb
 
 shared_examples_for "a DataMapper model" do
     it "provides a DataMapper::Collection for queries" do
