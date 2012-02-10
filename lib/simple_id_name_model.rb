@@ -53,7 +53,7 @@ module SimpleIdNameModel
 
             # @attribute [rw]
             # @return [String]
-            property :name, String, :length => 1..255
+            property :name, String, :length => 255, :required => true
 
             def inspect
                 "#<#{self.class} #{id}:#{name}>"
