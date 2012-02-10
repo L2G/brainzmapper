@@ -13,4 +13,5 @@ group :development do
   gem 'jeweler', '~> 1.6.4'
   gem 'simplecov'
   gem 'reek', '~> 1.2.8'
+  gem 'diff-lcs', '~> 1.1.1'
 end
