@@ -116,7 +116,7 @@ end
 
 AdvancedRelationship = AR
 
-require 'ar/artist_artist'
-require 'ar/artist_release'
-require 'ar/artist_url'
-require 'ar/release_url'
+require 'brainzmapper/ar/artist_artist'
+require 'brainzmapper/ar/artist_release'
+require 'brainzmapper/ar/artist_url'
+require 'brainzmapper/ar/release_url'
